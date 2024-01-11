@@ -2208,3 +2208,45 @@ def is_palindrome(text):
 
 txt = input()
 print(is_palindrome(txt))
+
+## BEEGEEK
+
+def is_palindrome(num):
+    if num == num[::-1]:
+        return True
+    else:
+        return False
+
+def is_prime(num):
+    n = int(num)
+    if n == 1:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def is_even(num):
+    n = int(num)
+    if n % 2 == 0:
+        return True
+    else:
+        return False
+    
+def is_valid_password(password):
+    for i in range(len(password)):
+        if password[i] in '1234567890:':
+            p = password.split(':')
+            if len(p) == 3:
+                a = p[0]
+                b = p[1]
+                c = p[2]
+                if is_palindrome(a) and is_prime(b) and is_even(c):
+                    return True
+        else:
+            return False
+    else:
+        return False
+
+psw = input()
+print(is_valid_password(psw))

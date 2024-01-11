@@ -2104,3 +2104,107 @@ for i in range(int(input())):
     
 print(*l1)
 
+## Is Valid Triangle?
+
+def is_valid_triangle(side1, side2, side3):
+    if side1 + side2 > side3 and side2 + side3 > side1 and side1 + side3 > side2:
+        return True
+    else:
+        return False
+
+a = int(input())
+b = int(input())
+c = int(input())
+
+print(is_valid_triangle(a, b, c))
+
+## Is a Number Prime?
+
+def is_prime(num):
+    count = 0
+    if num == 1:
+        return False
+    else:
+        for i in range(1, num + 1):
+            if num % i == 0:
+                count +=1
+        if count > 2:
+            return False          
+    return True
+n = int(input())
+print(is_prime(n))
+# faster version of is_prime:
+def is_prime(num):
+    if num == 1:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+## Next Prime
+
+def is_prime(num):
+    if num == 1:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def get_next_prime(num):
+    result = num + 1
+    while not is_prime(result):
+        result += 1
+    return(result)
+n = int(input())
+print(get_next_prime(n))
+
+## Good password
+
+def is_password_good(password):
+    count = 0
+    if len(password) >= 8:
+        count += 1
+        if password.isalnum():
+            count += 1
+            if password.islower() or password.isupper():
+                count -= 1
+            if password.isalpha() or password.isdigit():
+                count -= 1
+    
+    if count == 2:
+        return True
+    else:
+        return False
+
+txt = input()
+print(is_password_good(txt))
+
+## Ровно в одном
+
+def is_one_away(word1, word2):
+    count = 0
+    for i in range(len(word1)):
+        if word1[i] == word2[i]:
+            count += 1
+    if len(word1) - count == 1:
+        return True
+    else:
+        return False
+
+txt1 = input()
+txt2 = input()
+print(is_one_away(txt1, txt2))
+
+## Палиндром
+
+def is_palindrome(text):
+    cleaned_text = ''.join(char.lower() for char in text if char.isalnum())
+    if cleaned_text == cleaned_text[::-1]:
+        return True
+    else:
+        return False
+
+txt = input()
+print(is_palindrome(txt))

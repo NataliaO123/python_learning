@@ -2250,3 +2250,13 @@ def is_valid_password(password):
 
 psw = input()
 print(is_valid_password(psw))
+
+## Правильная скобочная последовательность
+
+def is_correct_bracket(text):
+    while '()' in text:
+        text = text.replace('()', '')
+    return len(text) == 0
+
+txt = input()
+print(is_correct_bracket(txt))

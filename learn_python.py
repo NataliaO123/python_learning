@@ -2260,3 +2260,176 @@ def is_correct_bracket(text):
 
 txt = input()
 print(is_correct_bracket(txt))
+
+## snake_case
+
+def convert_to_python_case(text):
+    t = text[0].lower()
+    for i in range(1, len(text) + 1):
+        if text[i].isupper():
+            t += '_' + text[i].lower()
+        else:
+            t += text[i]
+    return t
+
+txt = input()
+print(convert_to_python_case(txt))
+
+## Middle
+
+def get_middle_point(x1, y1, x2, y2):
+    m_x = (x1 + x2) / 2
+    m_y = (y1 + y2) / 2
+    return(m_x, m_y)
+
+x_1, y_1 = int(input()), int(input())
+x_2, y_2 = int(input()), int(input())
+print(x, y)
+
+## Circle
+
+from math import pi
+
+def get_circle(radius):
+    c = 2 *pi * radius
+    s = pi * radius ** 2
+    return c, s
+	
+r = float(input())
+length, square = get_circle(r)
+print(length, square)
+
+## Корни уравнения
+
+def solve(a, b, c):
+    d = b ** 2 - 4 * a * c
+    if d == 0:
+        x1 = x2 = -b / (2 * a)
+    else:
+        x1 = (-b + d ** 0.5) / (2 * a)
+        x2 = (-b - d ** 0.5) / (2 * a)
+    return min(x1, x2), max(x1, x2)
+a, b, c = int(input()), int(input()), int(input())
+x1, x2 = solve(a, b, c)
+print(x1, x2)
+
+## Калькулятор доставки
+
+def get_shipping_cost(quantity):
+    s = 1000 + (quantity - 1) * 120
+    return s
+
+n = int(input())
+print(get_shipping_cost(n))
+
+## Искомый месяц
+
+def get_month(language, number):
+    m_ru = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+    m_en = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
+    if language == 'ru':
+        return m_ru[number - 1]
+    else:
+        return m_en[number - 1]
+
+lan = input()
+num = int(input())
+print(get_month(lan, num))
+
+## Магические даты
+
+def is_magic(date):
+    d = [int(i) for i in date.split('.')]
+
+    num = d[2]
+    digit = 0
+    m_digit = ''
+
+    while num > 100:
+        digit = num % 10
+        m_digit += str(digit)
+        num //= 10
+    rev_m = m_digit[::-1]
+    if d[0] * d[1] == int(rev_m):
+        return True
+    else:
+        return False
+    
+date = input()
+print(is_magic(date))
+
+## better solution:
+def is_magic(date):
+    d = date.split('.')
+    day, month, year = int(d[0]), int(d[1]), int(d[2])
+
+    return day * month == year % 100
+
+## Панграммы
+
+def is_pangram(text):
+    t = text.lower()
+    l = 'abcdefghijklmnopqrstuvwxyz'
+    for i in l:
+        if i not in t:
+            return False
+    
+    return True
+
+text = input()
+print(is_pangram(text))
+
+## Звездный треугольник
+
+def draw_triangle():
+    for i in range(8):
+        print(' ' * (7 - i) + '*' * (1 + i * 2))
+
+draw_triangle()
+
+## Биномиальный коэффициент
+def factorial(n):
+    f = 1
+    for i in range(1, n + 1):
+        f *= i
+    return f
+
+def compute_binom(n, k):
+    if n == k == 1:
+        return 1
+    else:
+        a = factorial(n)
+        b = factorial(k)
+        return(a / (b * factorial(n - k)))
+
+n = int(input())
+k = int(input())  
+
+print(compute_binom(n, k))
+
+## Число словами
+
+def number_to_words(num):
+    units = ['один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать']
+    tens = ['двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
+    u = 0
+    t = 0
+    if 1 <= num <= 19:
+        result = units[num - 1]
+    elif num >= 20:
+        if num % 10 == 0:
+            result = tens[(num // 10) - 1]
+        else:
+            u = num % 10
+            t = num // 10
+            result = tens[t - 1] + ' ' + units[u - 1] 
+    
+    return result
+
+n = int(input())
+print(number_to_words(n))
+
+
+
+    
+

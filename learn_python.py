@@ -2429,6 +2429,19 @@ def number_to_words(num):
 n = int(input())
 print(number_to_words(n))
 
+## Numbers
+
+import math
+
+n = int(input())
+a = math.log2(n)
+b = math.ceil(a)
+print(b)
+
+## one-lane version:
+import math
+
+print(math.ceil(math.log2(int(input))))
 
 
     

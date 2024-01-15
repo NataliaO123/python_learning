@@ -2443,6 +2443,32 @@ import math
 
 print(math.ceil(math.log2(int(input))))
 
+## Passive-aggressive number guessing game
 
+import random as r
+r_num = r.randint(1, 100)
+
+print('Добро пожаловать в числовую угадайку')
+
+def is_valid(n):
+    if n.isdigit() and 1 <= int(n) <= 100:
+        return True
+    else:
+        return False
+
+while True:
+    num = input('Введите целое число от 1 до 100: ')
+    if not is_valid(num):
+        print('А может быть все-таки введем целое число от 1 до 100?')
+        continue
+
+    digit = int(num)
     
-
+    if digit < r_num:
+        print('Ваше число меньше загаданного, попробуйте еще разок')
+    elif digit > r_num:
+        print('Ваше число больше загаданного, попробуйте еще разок')
+    else:
+        print('Вы угадали, поздравляем!')
+        print('Спасибо, что играли в числовую угадайку. Еще увидимся...')
+        break

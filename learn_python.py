@@ -2513,3 +2513,12 @@ while True:
         else:
             print('Скоро увидимся')
             break
+
+## Base Number System Conversion (BOH)
+
+n = int(input())
+b = bin(n)
+o = oct(n)
+h = hex(n)
+
+print(b[2:], o[2:], h[2:].upper(), sep = '\n')

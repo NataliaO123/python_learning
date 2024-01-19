@@ -2522,3 +2522,44 @@ o = oct(n)
 h = hex(n)
 
 print(b[2:], o[2:], h[2:].upper(), sep = '\n')
+
+## Password generator
+
+import random as r
+
+digits = '0123456789'
+lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
+uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+punctuation = '!#$%&*+-=?@^_'
+
+chars = ''
+
+amount = input('Количество паролей')
+l = input('Длина пароля:')
+dig_n = input('Включать ли цифры 0123456789? (y/n)')
+l_n = input('Включать ли строчные буквы? (y/n)')
+u_n = input('Включать ли прописные буквы? (y/n)')
+s_n = input('Включать ли символы? (y/n)')
+ex = input('Исключать ли неоднозначные символы il1Lo0O? (y/n)')
+
+if dig_n == 'y':
+    chars += digits
+if l_n =='y':
+    chars += lowercase_letters
+if u_n == 'y':
+    chars += uppercase_letters
+if s_n == 'y':
+    chars += punctuation
+if ex == 'y':
+    for i in 'il1Lo0O':
+        chars = chars.replace(i,'')
+
+def generate_password(length, chars):
+    password = ''
+    for i in range(int(l)):
+        password += r.choice(chars)
+    return print(password)
+
+for _ in range(int(amount)):
+    generate_password(l, chars)
+

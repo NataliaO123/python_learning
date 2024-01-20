@@ -2563,3 +2563,71 @@ def generate_password(length, chars):
 for _ in range(int(amount)):
     generate_password(l, chars)
 
+## Шифр Цезаря
+n = int(input())
+text = input()
+decoded_text = ''
+for char in text:
+    decoded_char = chr(ord(char) - n)
+    if decoded_char < 'a':
+        decoded_char = chr(ord(char) - n + 26)
+    decoded_text += decoded_char
+print(decoded_text)
+
+def what_to_do(g):
+    while True:
+        print('Засекретить - 0, рассекретить - 1')
+        goal = int(input())
+        if goal == 0 or goal == 1:
+            return(goal)
+        else:
+            print('Не понимаю, попробуй еще раз')
+
+def how_to_do(l, s):
+    while True:
+        print('Русский - 0, английский - 1')
+        language = int(input())
+        if language == 0 or language == 1:
+            if language == 0:
+                print('Выбери шаг сдвига от 0 до 31')
+                step = int(input())
+                return(language, step)
+            else:
+                print('Выбери шаг сдвига от 0 до 25')
+                return(language, step)
+        else:
+            print('Опять ты за свое...')
+
+def declassify(n, text):
+    decoded_text = ''
+    for char in text:
+        decoded_char = chr(ord(char) - n)
+        if decoded_char < 'a':
+            decoded_char = chr(ord(char) - n + 26)
+        decoded_text += decoded_char
+    return print(decoded_text)
+
+def classify():
+    pass
+
+while True:
+    print('Итак, приступим...', 'покажи объект', sep = '\n')
+    language = []
+    step = []
+    lane = input()
+
+    if what_to_do() == 0:
+        how_to_do(language, step)
+        classify(lane, language, step)
+    else:
+        how_to_do(language, step)
+        declassify(lane, language, step)
+    
+    print('Что-то еще? Нет - 0, да - 1')
+    answer = int(input())
+    
+    if answer == 0:
+        print('До свидания!')
+    else:
+        continue
+

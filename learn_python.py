@@ -2563,71 +2563,50 @@ def generate_password(length, chars):
 for _ in range(int(amount)):
     generate_password(l, chars)
 
+## На easy
+
+a, b = int(input()), int(input())
+print((a + b), (a - b), (a * b), (a / b), (a // b), (a % b), ((a ** 10 + b ** 10) ** 0.5), sep = '\n')
+
+## Предикат делимости
+
+def func(n1, n2):
+    return n1 % n2 == 0
+
+num1, num2 = int(input()), int(input())
+if func(num1, num2):
+    print('делится')
+else:
+    print('не делится')
+
 ## Шифр Цезаря
-n = int(input())
+
+def caesar_encripter(char, k):
+    ord_char = ord(char)
+    if 65 <= ord_char <= 90:
+        first_char = 65
+        last_char = 90
+        alphabet_power = 26
+    elif 97 <= ord_char <= 122:
+        first_char = 97
+        last_char = 122
+        alphabet_power = 26
+    elif 1040 <= ord_char <= 1071:
+        first_char = 1040
+        last_char = 1071
+        alphabet_power = 32
+    elif 1072 <= ord_char <= 1103:
+        first_char = 1072
+        last_char = 1103
+        alphabet_power = 32
+    else:
+        return(char)
+    return chr(first_char + (ord(char) - first_char + k) % alphabet_power)
+
+print('Покажи мне текст...')
 text = input()
-decoded_text = ''
-for char in text:
-    decoded_char = chr(ord(char) - n)
-    if decoded_char < 'a':
-        decoded_char = chr(ord(char) - n + 26)
-    decoded_text += decoded_char
-print(decoded_text)
+print('Где ключ?..')
+key = int(input())
 
-def what_to_do(g):
-    while True:
-        print('Засекретить - 0, рассекретить - 1')
-        goal = int(input())
-        if goal == 0 or goal == 1:
-            return(goal)
-        else:
-            print('Не понимаю, попробуй еще раз')
-
-def how_to_do(l, s):
-    while True:
-        print('Русский - 0, английский - 1')
-        language = int(input())
-        if language == 0 or language == 1:
-            if language == 0:
-                print('Выбери шаг сдвига от 0 до 31')
-                step = int(input())
-                return(language, step)
-            else:
-                print('Выбери шаг сдвига от 0 до 25')
-                return(language, step)
-        else:
-            print('Опять ты за свое...')
-
-def declassify(n, text):
-    decoded_text = ''
-    for char in text:
-        decoded_char = chr(ord(char) - n)
-        if decoded_char < 'a':
-            decoded_char = chr(ord(char) - n + 26)
-        decoded_text += decoded_char
-    return print(decoded_text)
-
-def classify():
-    pass
-
-while True:
-    print('Итак, приступим...', 'покажи объект', sep = '\n')
-    language = []
-    step = []
-    lane = input()
-
-    if what_to_do() == 0:
-        how_to_do(language, step)
-        classify(lane, language, step)
-    else:
-        how_to_do(language, step)
-        declassify(lane, language, step)
-    
-    print('Что-то еще? Нет - 0, да - 1')
-    answer = int(input())
-    
-    if answer == 0:
-        print('До свидания!')
-    else:
-        continue
-
+for i in range(len(text)):
+    print(caesar_encripter(text[i], key), end = '')

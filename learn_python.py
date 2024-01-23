@@ -2610,3 +2610,38 @@ key = int(input())
 
 for i in range(len(text)):
     print(caesar_encripter(text[i], key), end = '')
+
+## Индекс массы тела
+
+def weight_index(w, h):
+    w_i = w / h ** 2
+    if w_i < 18.5:
+        result = 'Недостаточная масса'
+    elif w_i > 25:
+        result = 'Избыточная масса'
+    else:
+        result = 'Оптимальная масса'
+    return(result)
+
+weight, height = float(input()), float(input())
+print(weight_index(weight, height))
+
+## Стоимость строки
+
+l = input()
+price = len(l) * 6
+rub = price // 10
+cop = price % 10 * 10
+print(rub, 'р.', cop, 'коп.')
+
+## Количество слов
+
+l = input().split(' ')
+print(len(l))
+
+## Зодиак
+
+zodiak = ["Обезьяна", "Петух", "Собака", "Свинья", "Крыса", "Бык", "Тигр", "Заяц", "Дракон", "Змея", "Лошадь", "Овца"]
+year = int(input())
+y = year % 12
+print(zodiak[y])

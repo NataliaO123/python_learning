@@ -2718,3 +2718,14 @@ for _ in range(n):
         count[3] += 1
 for i in range(4):
     print(names[i], count[i])
+
+## Больше предыдущего
+
+s = input().split()
+count = 0
+for i in range(1, len(s)):
+    if int(s[i]) > int(s[i - 1]):
+        count += 1
+    else:
+        continue
+print(count)

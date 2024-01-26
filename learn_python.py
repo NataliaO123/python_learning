@@ -2655,4 +2655,66 @@ if len(n) == 5:
 elif len(n) == 6:
     a = n[0]
     b = n[:-6:-1]
-    print(a, b, sep = '')   
+    print(a, b, sep = '')  
+
+## Standard American Convention
+
+n = int(input())
+print(f'{n:,}')
+
+## Координатные четверти
+
+def grafik(s):
+    l = s.split(' ')
+    x = int(l[0])
+    y = int(l[1])
+    result = 0
+    if x > 0 and y > 0:
+        result = 1
+    elif x > 0 and y < 0:
+        result = 4
+    elif x < 0 and y < 0:
+        result = 3
+    elif x < 0 and y > 0:
+        result = 2
+    elif (x == 0 and y != 0) or (x != 0 and y == 0):
+        result = 0
+    return result
+
+fst = 0
+snd = 0
+thd = 0
+fth = 0
+
+n = int(input())
+for i in range(n):
+    xy = input()
+    result = grafik(xy)
+    if result == 1:
+        fst += 1
+    elif result == 2:
+        snd += 1
+    elif result == 3:
+        thd += 1
+    elif result == 4:
+        fth += 1
+print('Первая четверть: ', fst)
+print('Вторая четверть: ', snd)
+print('Третья четверть: ', thd)
+print('Четвертая четверть: ', fth)
+##Better solution:
+n = int(input())
+count = [0, 0, 0, 0]
+names = ['Первая четверть:', 'Вторая четверть:', 'Третья четверть:', 'Четвертая четверть:']
+for _ in range(n):
+    x, y = [int(num) for num in input().split()]
+    if x > 0 and y > 0:
+        count[0] += 1
+    elif x < 0 and y > 0:
+        count[1] += 1
+    elif x < 0 and y < 0:
+        count[2] += 1
+    elif x > 0 and y < 0:
+        count[3] += 1
+for i in range(4):
+    print(names[i], count[i])

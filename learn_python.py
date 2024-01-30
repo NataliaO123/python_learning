@@ -2742,3 +2742,53 @@ print(*s)
 n = input().split()
 last = n.pop()
 print(last, *n)
+
+## Различные элементы
+
+n = input().split()
+new_n = []
+for i in range(len(n)):
+    if n[i] not in new_n:
+        new_n.append(n[i])
+print(len(new_n))
+
+## Произведение чисел
+l = []
+p_l = []
+
+amount = int(input())
+
+for _ in range(amount):
+    l.append(int(input()))
+p = int(input())
+
+for i in range(0, len(l)):
+    for j in range(0, len(l)):
+        if i != j:
+            a = l[j] * l[i]
+            p_l.append(a)
+
+print(p_l)
+if p in p_l:
+    print('ДА')
+else:
+    print('НЕТ')
+
+## Rock/Paper/Scissors
+
+
+def r_p_s(a, b):
+    base = ['камень', 'ножницы', 'бумага']
+    if (a == base[0] and b!= base[2]) or (a == base[1] and b != base[0]) or (a == base[2] and b != base[1]):
+        result = a
+    else:
+        result = b
+    return result
+
+player_1, player_2 = input(), input()
+if player_1 == player_2:
+    print('ничья')
+elif r_p_s(player_1, player_2) == player_1:
+    print('Тимур')
+else:
+    print('Руслан')

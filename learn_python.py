@@ -2796,3 +2796,29 @@ else:
 
 results = input().split('О')
 print(len(max(result)))
+
+## Камень, ножницы, бумага, ящерица, Спок
+
+def rock_paper_scissors_extended(gest1, gest2):
+    base = ['камень', 'ножницы', 'бумага', 'ящерица', 'Спок']
+    if gest1 == base[0] and (gest2 == base[1] or gest2 == base[3]):
+        result = gest1
+    elif gest1 == base[1] and (gest2 == base[2] or gest2 == base[3]):
+        result = gest1
+    elif gest1 == base[2] and (gest2 == base[0] or gest2 == base[4]):
+        result = gest1
+    elif gest1 == base[3] and (gest2 == base[2] or gest2 == base[4]):
+        result = gest1
+    elif gest1 == base[4] and (gest2 == base[0] or gest2 == base[1]):
+        result = gest1
+    else:
+        result = gest2
+    return result
+
+g1, g2 = input(), input()
+if g1 == g2:
+    print('ничья')
+elif rock_paper_scissors_extended(g1, g2) == g1:
+    print('Тимур')
+else:
+    print('Руслан')

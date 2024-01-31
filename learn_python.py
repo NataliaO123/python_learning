@@ -2776,7 +2776,6 @@ else:
 
 ## Rock/Paper/Scissors
 
-
 def r_p_s(a, b):
     base = ['камень', 'ножницы', 'бумага']
     if (a == base[0] and b!= base[2]) or (a == base[1] and b != base[0]) or (a == base[2] and b != base[1]):
@@ -2792,3 +2791,8 @@ elif r_p_s(player_1, player_2) == player_1:
     print('Тимур')
 else:
     print('Руслан')
+
+## Орел и решка
+
+results = input().split('О')
+print(len(max(result)))

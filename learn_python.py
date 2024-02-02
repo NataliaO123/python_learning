@@ -2823,28 +2823,31 @@ elif rock_paper_scissors_extended(g1, g2) == g1:
 else:
     print('Руслан')
 
-## 
-
-def decode(lane):
-    l1 = lane.split()
-    l2 = []
-    p = 'антон'
-    for i in l1:
-        if i in p:
-            l2.append(i)
-    if l1 == l2:
-        return True
-    else:
-        return False
+## find elements p in lane
 
 n = int(input())
-result = []
-for i in range(1, n + 1):
-    lanes = input().lower()
-    if decode(lanes):
-        result.append(str(i))
-        print(result)
-print(result)
-
-
-
+r = []
+p = ['a', 'n', 't', 'o', 'n']
+for i in range(n):
+    lane = input()
+    f_index = 0
+    for j in lane:
+        if j == p[f_index]:
+            f_index += 1
+            if f_index == len(p):
+                r.append(i + 1)
+                break
+print(r)
+##better solution:
+n = int(input())
+for i in range(n):
+    seq = ["a", "n", "t", "o", "n"]
+    s = list(input())
+    while seq and s:
+        if seq[0] == s[0]:
+            seq.pop(0)
+            s.pop(0)
+        else:
+            s.pop(0)
+    if not seq:
+        print(i + 1, end=" ")

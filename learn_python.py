@@ -2900,5 +2900,32 @@ l = []
 for _ in range(n):
     elem = [i for i in range(1, n + 1)]
     l.append(elem) 
-    print(elem, sep = )
-print(l)
+    print(elem, sep = '\n')
+
+## Список по образцу 2
+
+n = int(input())
+l = []
+for i in range(1, n + 1):
+    elem = [j for j in range(1, i + 1)]
+    l.append(elem) 
+    print(elem, sep = '\n')
+
+## Треугольник Паскаля 1
+    
+def pascal(num):
+    triangle = []
+    for row in range(num):
+        cur_row = []
+        for elem in range(row + 1):
+            if elem == 0 or elem == row:
+                cur_row.append(1)
+            else:
+                cur_row.append(triangle[row - 1][elem - 1] + triangle[row - 1][elem])
+        triangle.append(cur_row)
+    return triangle
+
+n = int(input())
+triangle = pascal(n)
+for row in triangle:
+    print(row)

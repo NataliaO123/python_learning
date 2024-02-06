@@ -2892,3 +2892,13 @@ for i in range(len(list1)):
     counter += len(list1[i])
     total += sum(list1[i])
 print(total/counter)
+
+## Список по образцу 1
+
+n = int(input())
+l = []
+for _ in range(n):
+    elem = [i for i in range(1, n + 1)]
+    l.append(elem) 
+    print(elem, sep = )
+print(l)

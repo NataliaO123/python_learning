@@ -2914,6 +2914,9 @@ for i in range(1, n + 1):
 ## Треугольник Паскаля 1
     
 def pascal(num):
+    if num == 0:
+        return[1]
+    
     triangle = []
     for row in range(num):
         cur_row = []
@@ -2923,9 +2926,21 @@ def pascal(num):
             else:
                 cur_row.append(triangle[row - 1][elem - 1] + triangle[row - 1][elem])
         triangle.append(cur_row)
-    return triangle
+    return triangle[num - 1]
 
-n = int(input())
-triangle = pascal(n)
-for row in triangle:
-    print(row)
+pascal(int(input()))
+
+##corect solution:
+def pascal(n):
+    if n == 0:
+        return [1]
+    row = [1]
+    for i in range(1, n + 1):
+        new_row = [1]
+        for j in range(1, i):
+            new_row.append(row[j - 1] + row[j])
+        new_row.append(1)
+        row = new_row
+    return row
+
+print(pascal(int(input())))

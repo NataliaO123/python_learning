@@ -2944,3 +2944,24 @@ def pascal(n):
     return row
 
 print(pascal(int(input())))
+
+n = int(input())
+for i in range(n):
+    print(*pascal(i))
+    
+
+## Упаковка дубликатов
+
+l = input().split()
+packed_l = []
+
+temp = [l[0]]
+for i in range(1, len(l)):
+    if l[i] == l[i - 1]:
+        temp.append(l[i])
+    else:
+        packed_l.append(temp)
+        temp = [l[i]]
+packed_l.append(temp)
+
+print(packed_l)

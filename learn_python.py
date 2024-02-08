@@ -2965,3 +2965,25 @@ for i in range(1, len(l)):
 packed_l.append(temp)
 
 print(packed_l)
+
+## chunked
+
+def chunked(l, n):
+    new_l = [] 
+    for i in range(0, len(l), n):
+        new_l.append(l[i:i + n])
+    return(new_l)
+
+s = input().split()
+number = int(input())
+print(chunked(s, number))
+
+## Matrix
+
+n, m = int(input()), int(input())
+matrix = [[0]*m for _ in range(n)]
+for i in range(n):
+    for j in range(m):
+        matrix[i][j] = input()
+for i in range(n):
+    print(*matrix[i], end = '\n')

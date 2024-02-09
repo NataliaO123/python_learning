@@ -2987,3 +2987,22 @@ for i in range(n):
         matrix[i][j] = input()
 for i in range(n):
     print(*matrix[i], end = '\n')
+
+## Matrix2
+
+n, m = int(input()), int(input())
+matrix = [[0]*m for _ in range(n)]
+for i in range(n):
+    for j in range(m):
+        matrix[i][j] = input()
+for i in range(n):
+    for j in range(m):
+        print(matrix[i][j], end = ' ')
+    print()
+
+print()
+
+for j in range(m):
+    for i in range(n):
+        print(matrix[i][j], end = ' ')
+    print()

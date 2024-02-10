@@ -1462,6 +1462,63 @@ for char in text:
     decoded_text += decoded_char
 print(decoded_text)
 
+## Ave Caesar
+
+#
+l = input().split()
+coded_l = []
+for word in l:
+    coded_word = ''
+    for char in word:
+        if char.isalpha():
+            coded_char = chr(ord(char) - len(word))
+            if coded_char < 'a':
+                coded_char = chr(ord(char) - len(word) + 26)
+            coded_word += coded_char
+        else:
+            coded_word += char
+    coded_l.append(coded_word)
+#
+l = input().split()
+coded_l = []
+for word in l:
+    coded_word = ''
+    count_len = 0
+    for char in word:
+        if char.isalpha():
+            count_len += 1
+            coded_char = chr(ord(char) - count_len)
+            if coded_char < 'a':
+                coded_char = chr(ord(char) - count_len + 26)
+            coded_word += coded_char
+        else:
+            coded_word += char
+    coded_l.append(coded_word)
+##
+def caesar(word, shift):
+    encr_word = ''
+    for char in word:
+        if char.isalpha():
+            if char.islower():
+                shifted_char = chr((ord(char) - 97 + shift) % 26 + 97)
+            else:
+                shifted_char = chr((ord(char) - 65 + shift) % 26 + 65)
+        else:
+            shifted_char = char
+        encr_word += shifted_char
+    return encr_word
+
+l = input().split()
+new_l = []
+for word in l:
+    count = 0
+    for char in word:
+        if char.isalpha():
+            count += 1
+    new_word = caesar(word, count)
+    new_l.append(new_word)
+print(*new_l)
+
 ## Каждый третий
 
 l = input()

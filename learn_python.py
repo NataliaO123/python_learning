@@ -1519,6 +1519,112 @@ for word in l:
     new_l.append(new_word)
 print(*new_l)
 
+## Угадайка слов - Hangman
+
+import random as r
+word_list = ['камень', 'ножницы', 'бумага', 'ящерица', 'вулканец', 'капитан', 'энтерпрайз', 'планета']
+
+def get_word():
+    result = r.choice(word_list).upper()
+    return result
+
+def display_hangman(tries):
+    stages = [  # финальное состояние: голова, торс, обе руки, обе ноги
+                '''
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     / \\
+                   -
+                ''',
+                # голова, торс, обе руки, одна нога
+                '''
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     / 
+                   -
+                ''',
+                # голова, торс, обе руки
+                '''
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |      
+                   -
+                ''',
+                # голова, торс и одна рука
+                '''
+                   --------
+                   |      |
+                   |      O
+                   |     \\|
+                   |      |
+                   |     
+                   -
+                ''',
+                # голова и торс
+                '''
+                   --------
+                   |      |
+                   |      O
+                   |      |
+                   |      |
+                   |     
+                   -
+                ''',
+                # голова
+                '''
+                   --------
+                   |      |
+                   |      O
+                   |    
+                   |      
+                   |     
+                   -
+                ''',
+                # начальное состояние
+                '''
+                   --------
+                   |      |
+                   |      
+                   |    
+                   |      
+                   |     
+                   -
+                '''
+    ]
+    return stages[tries]
+
+def play(word):
+    word_completion = '_' * len(word)
+    guessed_letters = [] 
+    guessed_words = []
+    tries = 6 
+    guessed = False  
+    print("Let's play!")
+    print(display_hangman(6))
+    print(word_completion)
+    while guessed == False:
+        for i in range(1, 6):
+            print('Введи букву...')
+            g_letter = input().upper()
+            guessed_letters.append(g_letter)
+            if g_letter in word:
+                
+        
+
+
+    
+
+
+
 ## Каждый третий
 
 l = input()

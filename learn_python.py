@@ -3169,3 +3169,24 @@ for j in range(m):
     for i in range(n):
         print(matrix[i][j], end = ' ')
     print()
+
+## След квадратной матрицы
+
+n = int(input())
+matrix = []
+for i in range(n):
+    temp = [int(num) for num in input().split()]
+    matrix.append(temp)
+
+def matrix_trace(rows, matrix):
+    cols = rows
+    m_trace = 0
+    for r in range(rows):
+        for c in range(cols):
+            if r == c:
+                m_trace += matrix[r][c]  
+                
+    return m_trace
+
+print(matrix_trace(n, matrix))
+        

@@ -3189,4 +3189,75 @@ def matrix_trace(rows, matrix):
     return m_trace
 
 print(matrix_trace(n, matrix))
-        
+
+
+## Больше среднего
+    
+rows = int(input())
+matrix = []
+for _ in range(rows):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+
+for lane in matrix:
+    above_avg = 0
+    avg_in_row = sum(lane) / len(lane)
+    for num in lane:
+        if num > avg_in_row:
+            above_avg += 1
+    print(above_avg)
+
+## Max in area
+
+## matrix = [[int(i) for i in input().split()] for _ in range(int(input()))]
+
+rows = int(input())
+matrix = []
+for _ in range(rows):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+mx = -10 ** (9)
+for row in range(rows):
+    for col in range(len(matrix[row])):
+        if row >= col:
+            if matrix[row][col] > mx:
+                mx = matrix[row][col]
+print(mx)
+
+## Max in area 2
+
+rows = int(input())
+matrix = []
+for _ in range(rows):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+mx = matrix[0][0]
+for row in range(rows):
+    for col in range(len(matrix[row])):
+        if (row >= col and row <= (rows - 1 - col)) or (row <= col and row >= (rows - 1 - col)):
+            if matrix[row][col] > mx:
+                mx = matrix[row][col]
+print(mx)
+
+## Sum of quarters
+
+rows = int(input())
+matrix = []
+for _ in range(rows):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+
+q_left, q_up, q_right, q_down = 0, 0, 0, 0
+
+for i in range(rows):
+    for j in range(len(matrix[i])):
+        if i > j and i < (rows - 1 - j):
+            q_left += matrix[i][j]
+        elif i > j and i > (rows - 1 - j):
+            q_down += matrix[i][j]
+        elif i < j and i > (rows - 1 - j):
+            q_right += matrix[i][j]
+        elif i < j and i < (rows - 1 - j):
+            q_up += matrix[i][j]
+
+print(f'Верхняя четверть: {q_up}', f'Правая четверть: {q_right}', f'Нижняя четверть: {q_down}', f'Левая четверть: {q_left}', sep='\n')

@@ -3261,3 +3261,17 @@ for i in range(rows):
             q_up += matrix[i][j]
 
 print(f'Верхняя четверть: {q_up}', f'Правая четверть: {q_right}', f'Нижняя четверть: {q_down}', f'Левая четверть: {q_left}', sep='\n')
+
+## Multiplication table
+
+n, m = int(input()), int(input())
+mult = []
+for i in range(n):
+    lane = [i * j for j in range(m)]
+    mult.append(lane)
+for x in range(n):
+    for y in range(m):
+        print(str(mult[x][y]).ljust(3), end = '')
+    print()
+    
+

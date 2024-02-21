@@ -3269,9 +3269,30 @@ mult = []
 for i in range(n):
     lane = [i * j for j in range(m)]
     mult.append(lane)
+
 for x in range(n):
     for y in range(m):
         print(str(mult[x][y]).ljust(3), end = '')
     print()
-    
+
+## Max in the table
+
+n, m = int(input()), int(input())
+matrix = []
+for i in range(n):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+
+mx = matrix[0][0]
+a = 0
+b = 0
+
+for x in range(n):
+    for y in range(m):
+        if int(matrix[x][y]) > int(mx):
+            mx = matrix[x][y]
+            a = x
+            b = y
+
+print(a, b)
 

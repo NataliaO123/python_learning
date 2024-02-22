@@ -3296,3 +3296,39 @@ for x in range(n):
 
 print(a, b)
 
+## Обмен столбцов
+
+n, m = int(input()), int(input())
+matrix = []
+for i in range(n):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+i, j = map(int, input().split())
+
+for x in range(n):
+    matrix[x][i], matrix[x][j] = matrix[x][j], matrix[x][i]
+
+for lane in matrix:
+    print(*lane)
+
+## Симметричность матрицы
+
+n = int(input())
+matrix = []
+for _ in range(n):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+is_symmetric = True
+for x in range(n):
+    for y in range(n):
+        if matrix[x][y] != matrix[y][x]:
+            is_symmetric = False
+            break
+    if not is_symmetric:
+        break
+
+if is_symmetric:
+    print('YES')
+else:
+    print('NO')
+

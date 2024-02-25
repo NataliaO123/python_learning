@@ -3332,3 +3332,27 @@ if is_symmetric:
 else:
     print('NO')
 
+## Обмен диагоналей
+
+n = int(input())
+matrix = []
+for _ in range(n):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+for x in range(n):
+    for y in range(n):
+        if x == y:
+            matrix[x][y], matrix[x][(n - x - 1)] = matrix[x][(n - x - 1)], matrix[x][y]
+for x in range(n): 
+    for y in range(n):
+        print(matrix[x][y], end=' ')
+    print()
+##correct solution:
+n = int(input())
+matrix = [input().split() for _ in range(n)]
+
+for i in range(n):
+    matrix[i][i], matrix[n - i - 1][i] = matrix[n - i - 1][i], matrix[i][i]
+
+for row in matrix:
+    print(*row)

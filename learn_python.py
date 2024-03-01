@@ -3356,3 +3356,29 @@ for i in range(n):
 
 for row in matrix:
     print(*row)
+
+## Сложение матриц
+
+n, m = map(int, input().split())
+
+matrix1 = []
+for _ in range(n):
+    row = list(map(int, input().split()))
+    matrix1.append(row)
+
+input()
+
+matrix2 = []
+for _ in range(n):
+    row = list(map(int, input().split()))
+    matrix2.append(row)
+
+result_matrix = []
+for i in range(n):
+    row = []
+    for j in range(m):
+        row.append(matrix1[i][j] + matrix2[i][j])
+    result_matrix.append(row)
+
+for row in result_matrix:
+    print(*row)

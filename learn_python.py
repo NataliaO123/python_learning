@@ -3382,3 +3382,58 @@ for i in range(n):
 
 for row in result_matrix:
     print(*row)
+
+## Умножение матриц
+
+n, m = map(int, input().split())
+
+matrix1 = []
+matrix2 = []
+
+for _ in range(n):
+    row1 = list(map(int, input().split()))
+    matrix1.append(row1)
+
+input()
+
+m, k = map(int, input().split())
+
+
+for _ in range(m):
+    row2 = list(map(int, input().split()))
+    matrix2.append(row2)
+
+matrix3 = [[0]*k for _ in range(n)]
+
+for i in range(n):
+    for j in range(k):
+        for h in range(m):
+            matrix3[i][j] += matrix1[i][h] * matrix2[h][j]
+
+for row in matrix3:
+    print(*row)
+
+## Возведение матрицы в степень
+
+rows = int(input())
+matrix = []
+matrix_result = [] 
+
+for _ in range(rows):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+    matrix_result.append(lane.copy())
+
+power = int(input()) 
+ 
+while power > 1:
+    temp_result = [[0]*rows for _ in range(rows)]
+    for i in range(rows):
+        for j in range(rows):
+            for h in range(rows):
+                temp_result[i][j] += matrix_result[i][h] * matrix[h][j]
+    matrix_result = temp_result
+    power -= 1
+
+for row in matrix_result:
+    print(*row)

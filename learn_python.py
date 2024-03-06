@@ -3437,3 +3437,35 @@ while power > 1:
 
 for row in matrix_result:
     print(*row)
+
+## Зеркальное отображение
+
+dimension = int(input())
+matrix = []
+matrix1 = []
+
+for _ in range(dimension):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+
+matrix1 = matrix[::-1]
+
+for i in matrix1:
+    print(*i)
+
+## Поворот матрицы
+
+dimension = int(input())
+matrix = []
+matrix1 = []
+
+for _ in range(dimension):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+
+matrix1 = matrix[::-1]
+
+for i in range(dimension):
+    for j in range(dimension):
+        print(matrix1[j][i], end = ' ')
+    print()

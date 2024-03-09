@@ -3469,3 +3469,47 @@ for i in range(dimension):
     for j in range(dimension):
         print(matrix1[j][i], end = ' ')
     print()
+
+## Магический квадрат
+   
+def magic(n, matrix):
+    cor_nums = list(range(1, n ** 2 + 1))
+    tested_nums = []
+    for lane in matrix:
+        tested_nums.extend(lane)
+    tested_nums.sort()
+    if tested_nums != cor_nums:
+        return 'NO'
+    
+    lanes = matrix.copy()
+    
+    cols = []
+    for j in range(n):
+        cur_col = []
+        for i in range(n):
+            cur_col.append(matrix[i][j])
+        cols.append(cur_col)
+
+    diags = [[], []]
+    for i in range(n):
+        diags[0].append(matrix[i][i])
+        diags[1].append(matrix[i][n - 1 - i])
+    
+    all_n = lanes + cols + diags
+    max_sum = sum(all_n[0])
+    min_sum = sum(all_n[0])
+    for lane in all_n:
+        max_sum = max(max_sum, sum(lane))
+        min_sum = min(min_sum, sum(lane))
+    if max_sum != min_sum:
+        return "NO"
+    return "YES"
+
+n = int(input())
+matrix = []
+for _ in range(n):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+
+print(magic(n, matrix))
+

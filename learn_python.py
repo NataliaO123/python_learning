@@ -3513,3 +3513,23 @@ for _ in range(n):
 
 print(magic(n, matrix))
 
+## Ходы коня
+
+matrix = [['.']*8 for _ in range(8)]
+field_col = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+field_row = ['8', '7', '6', '5', '4', '3', '2', '1']
+
+loc = input()
+
+y = field_col.index(loc[0])
+x = field_row.index(loc[1])
+
+matrix[x][y] = 'N'
+
+for i in range(8):
+    for j in range(8):
+        if (abs(x - i) == 1 and abs(y - j) == 2) or (abs(x - i) == 2 and abs(y - j) == 1):
+            matrix[i][j] = '*'
+
+for i in range(8):
+    print(*matrix[i], end = '\n')

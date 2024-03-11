@@ -3533,3 +3533,17 @@ for i in range(8):
 
 for i in range(8):
     print(*matrix[i], end = '\n')
+
+## Шахматная доска
+
+params = input().split()
+n = int(params[0])
+m = int(params[1])
+chess_board = ['.' * m for _ in range(n)]
+for i in range(n):
+    for j in range(m):
+        if (i % 2 != 0 and j % 2 == 0) or (i % 2 == 0 and j % 2 != 0):
+            print(chess_board[i][j].replace('.', '*'), end = ' ')
+        else:
+            print(chess_board[i][j], end = ' ')
+    print()

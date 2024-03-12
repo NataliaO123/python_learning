@@ -3547,3 +3547,21 @@ for i in range(n):
         else:
             print(chess_board[i][j], end = ' ')
     print()
+
+## Заполнение 1
+
+params = input().split()
+n = int(params[0])
+m = int(params[1])
+matrix = [[0] * m for _ in range(n)]
+count = 0
+
+for i in range(n):
+    for j in range(m):
+        count += 1
+        matrix[i][j] = count
+    
+for i in range(n):
+    for j in range(m):
+        print(str(matrix[i][j]).ljust(3), end = '')
+    print()

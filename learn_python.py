@@ -3565,3 +3565,19 @@ for i in range(n):
     for j in range(m):
         print(str(matrix[i][j]).ljust(3), end = '')
     print()
+
+## Заполнение 2
+
+params = input().split()
+n = int(params[0])
+m = int(params[1])
+matrix = [[0] * m for _ in range(n)]
+start = 1
+for i in range(n):
+    for j in range(m):
+        matrix[i][j] = i + j * n + 1
+
+for i in range(n):
+    for j in range(m):
+        print(str(matrix[i][j]).ljust(3), end = '')
+    print()

@@ -3623,3 +3623,52 @@ for i in range(n):
             matrix[i][j] = 2
         print(matrix[i][j], end = ' ')
     print()
+
+## Заполнение 5
+
+params = input().split()
+n = int(params[0])
+m = int(params[1])
+matrix = []
+lane = list(range(1, m + 1))
+
+for i in range(n):
+    matrix.append(lane)
+    lane = lane[1:] + [lane[0]]
+
+for i in matrix:
+    print(*i)
+
+## Заполнение змейкой
+
+params = input().split()
+n = int(params[0])
+m = int(params[1])
+matrix = []
+
+count = 0
+
+for i in range(n):
+    for j in range(m):
+        count += 1
+        matrix[i][j] = count
+for i in matrix:
+    if i % 2 == 0:
+        print(i[:-1])
+    else:
+        print(i)
+
+## Заполнение диагоналями
+
+params = input().split()
+n = int(params[0])
+m = int(params[1])
+matrix = [[0] * m for _ in range(n)]
+##lane = [x for x in range(n * m)]
+temp = 1
+for i in range(n + m):
+    for j in range(n):
+        for k in range(m):
+            if j + k == i:
+                matrix[j][k] = temp
+                temp += 1   

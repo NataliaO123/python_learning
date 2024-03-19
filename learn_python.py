@@ -3717,3 +3717,126 @@ n = int(params[0])
 m = int(params[1])
 spiral(n, m)
 
+## Максимальный в области 2
+
+n = int(input())
+matrix = []
+for i in range(n):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+mx = -10 ** (9)
+for i in range(n):
+    for j in range(n):
+        if i >= n - 1 - j:
+            if matrix[i][j] > mx:
+                mx = matrix[i][j]
+print(mx)
+
+## Транспонирование матрицы
+
+n = int(input())
+matrix = []
+new_matrix = [[0] * n for _ in range(n)]
+
+for _ in range(n):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+    
+for i in range(n):
+    for j in range(n):
+        new_matrix[i][j] = matrix[j][i]
+        
+for i in range(n):
+    for j in range(n):
+        print(new_matrix[i][j], end = ' ')
+    print()
+
+## Снежинка
+
+n = int(input())
+matrix = ['.' * n for _ in range(n)]
+
+for i in range(n):
+    for j in range(n):
+        if (i == j or i + j + 1 == n) or (i == n //2 or j == n // 2):
+            print(matrix[i][j].replace('.', '*'), end = ' ')
+        else:
+            print(matrix[i][j], end = ' ')
+    print()
+
+
+## Симметричная матрица
+
+n = int(input())
+matrix = []
+for _ in range(n):
+    lane = [int(num) for num in input().split()]
+    matrix.append(lane)
+is_symmetric = True
+for i in range(n):
+    for j in range(n):
+        if matrix[i][j] != matrix[n-j-1][n-i-1]:
+            is_symmetric = False
+            break
+    if not is_symmetric:
+        break
+
+if is_symmetric:
+    print('YES')
+else:
+    print('NO')
+
+## Латинский квадрат
+
+n = int(input())
+matrix = [[int(i) for i in input().split()] for _ in range(n)]
+
+test_lane = list(range(1, n + 1))
+
+flag = True
+
+for i in range(n):
+    h_nums = sorted(matrix[i])
+    v_nums = sorted(matrix[j][i] for j in range(n))
+
+    if h_nums != test_lane or v_nums != test_lane:
+        flag = False
+        break
+
+if flag:
+    print('YES')
+else:
+    print('NO')
+
+
+## Ходы ферзя
+            
+matrix = [['.']*8 for _ in range(8)]
+field_col = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+field_row = ['8', '7', '6', '5', '4', '3', '2', '1']
+
+loc = input()
+
+y = field_col.index(loc[0])
+x = field_row.index(loc[1])
+
+for i in range(8):
+    for j in range(8):
+        if i == x or j == y or (i + j == x + y) or (j - i == y - x):
+            matrix[i][j] = '*'
+
+matrix[x][y] = 'Q'
+
+for i in range(8):
+    print(*matrix[i], end = '\n')
+
+## Каждый n-ый элемент
+def chunked(l, n):
+    new_l = [] 
+    for i in range(0, n):
+        new_l.append(l[i::n])
+    return(new_l)
+
+s = input().split()
+number = int(input())
+print(chunked(s, number))

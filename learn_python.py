@@ -3850,3 +3850,76 @@ print(non_empty_tuples)
 tuples = [(10, 20, 40), (40, 50, 60), (70, 80, 90), (10, 90), (1, 2, 3, 4), (5, 6, 10, 2, 1, 77)]
 new_tuples = [i[:-1] + (100,) for i in tuples]
 print(new_tuples)
+
+numbers = (2, 3, 5, 7, -11, 13, 17, 19, 23, 29, 31, -6, 41, 43, 47, 53, 59, 61, -96, 71, 1000, -1)
+count = 1
+for i in range(len(numbers)):
+    count*= numbers[i]
+print(count)
+
+## Tuples
+
+poet_data = ('Пушкин', 1799, 'Санкт-Петербург')
+temp = list(poet_data)
+temp[2] = 'Москва'
+poet_data = tuple(temp) 
+
+print(poet_data)
+
+## 
+
+numbers = ((10, 10, 10, 12), (30, 45, 56, 45), (81, 80, 39, 32), (1, 2, 3, 4), (90, 10))
+avg = []
+for i in numbers:
+    temp = 0
+    temp = sum(i)/len(i)
+    avg.append(temp)
+print(avg)
+
+## Вершина параболы
+
+def vertex_coordinates(a, b, c):
+
+    x = -b / (2 * a)
+    y = (4 * a * c - b ** 2) / (4 * a)
+
+    return(x, y)
+
+a, b, c = int(input()), int(input()), int(input())
+print(vertex_coordinates(a, b, c))
+
+## Конкурсный отбор
+
+n = int(input())
+
+students = []
+for i in range(n):
+    temp = input()
+    students.append(temp)
+best_students = []
+for student in students:
+    grade = int(student[-1])
+    if grade in (4, 5):
+        best_students.append(student)
+        
+print(*students, sep = '\n')
+print()
+print(*best_students, sep = '\n')
+## better version:
+students = [tuple(input().split()) for _ in range(int(input()))]
+for student in students:
+    print(*student)
+print()
+for name, grade in students:
+    if int(grade) > 3:
+        print(name, grade)
+
+## Последовательность Трибоначчи
+
+n = int(input())
+F1 = 1
+F2 = 1
+F3 = 1
+for i in range(n):
+    print(F1, end=' ')
+    F1, F2, F3 = F2, F3, F1+F2+F3

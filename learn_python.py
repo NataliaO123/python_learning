@@ -3923,3 +3923,21 @@ F3 = 1
 for i in range(n):
     print(F1, end=' ')
     F1, F2, F3 = F2, F3, F1+F2+F3
+
+## Множества
+
+##море
+n = int(input())
+##деревня
+m = int(input())
+##горы
+k = int(input())
+
+x = int(input()) ##(n + m)
+y = int(input()) ##(m + k)
+
+z = int(input())
+
+students = z + (n - x) +  (k - y) + (m - x - y) + x + y
+
+print(students)

@@ -3968,3 +3968,62 @@ one_book = b1 + b2 + b3
 zero_books = a - one_book - two_books - t
 
 print(one_book, two_books, zero_books, sep = '\n')
+
+##
+
+numbers = {9089, -67, -32, 1, 78, 23, -65, 99, 9089, 34, -32, 0, -67, 1, 11, 111, 111, 1, 23}
+s = 0
+for n in numbers:
+    s += n ** 2
+
+print(s)
+
+##
+
+fruits = {'apple', 'banana', 'cherry', 'avocado', 'pineapple', 'apricot', 'banana', 'avocado', 'grapefruit'}
+sort_fruits = sorted(fruits, reverse = True)
+print(*sort_fruits, sep = '\n')
+
+## Количество различных символов
+
+print(len(set(input())))
+
+## 
+
+s = input()
+new_s = set(s,)
+if len(s) == len(new_s):
+    print('YES')
+else:
+    print('NO')
+
+## 
+
+first, second = input(), input()
+new = first + second
+if len(set(new)) == 10:
+    print('YES')
+else:
+    print('NO')
+
+## Одинаковые наборы
+
+first, second = input(), input()
+if len(set(first)) == len(set(second)) and sorted(set(first)) == sorted(set(second)):
+    print('YES')
+else:
+    print('NO')
+
+##
+
+lane = input().split()
+etalon = set(lane[0])
+count = 0
+for i in range(len(lane)):
+    if len(set(lane[i])) == len(etalon) and sorted(set(etalon)) == sorted(set(lane[i])):
+        count += 1
+if count == len(lane):
+    print('YES')
+else:
+    print('NO')
+

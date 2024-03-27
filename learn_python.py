@@ -4027,3 +4027,9 @@ if count == len(lane):
 else:
     print('NO')
 
+## Уникальные символы 1
+
+for i in range(int(input())):
+    print(len(set(input().lower())))
+   
+

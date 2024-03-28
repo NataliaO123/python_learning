@@ -4032,4 +4032,31 @@ else:
 for i in range(int(input())):
     print(len(set(input().lower())))
    
+## Уникальные символы 2
+    
+s = ''
+for i in range(int(input())):
+    a = input().lower()
+    s += a
+
+print(len(set(s)))
+
+## Количество слов в тексте
+
+s = input().lower().split()
+ignored_char = ['.', ',', ';', ':', '-', '?', '!']
+
+for i in range(len(s)):
+    word = s[i]
+    if not word.isalpha():
+        for j in word:
+            if j in ignored_char:
+                word = word.replace(j, '')
+        s[i] = word
+
+myset = set()
+for i in range(len(s)):
+    myset.add(s[i])
+    
+print(len(myset))
 

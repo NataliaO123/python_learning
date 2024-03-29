@@ -4060,3 +4060,53 @@ for i in range(len(s)):
     
 print(len(myset))
 
+## Числа
+
+numbers = [int(i) for i in input().split()]
+
+print(numbers)
+print(type(numbers[0]))
+myset = set()
+
+for i in range(len(numbers)):
+    if numbers[i] not in myset:
+        print('NO')
+        myset.add(numbers[i])
+    else:
+        print('YES')
+
+## intersection 1
+        
+lane1, lane2 = set(input().split()), set(input().split())
+lane3 = lane1.intersection(lane2)
+print(len(lane3))
+
+## intersection 2
+
+lane1, lane2 = set(input().split()), set(input().split())
+
+lane3 = lane1.intersection(lane2)
+response = list(lane3)
+for i in range(len(response)):
+    response[i] = int(response[i])
+
+print(*sorted(response))
+
+## difference
+
+lane1, lane2 = set(input().split()), set(input().split())
+lane3 = lane1.difference(lane2)
+response = list(lane3)
+for i in range(len(response)):
+    response[i] = int(response[i])
+
+print(*sorted(response))
+
+## Общие цифры
+
+n = int(input())
+s = set(input())
+for i in range(n - 1):
+    s.intersection_update((input()))
+
+print(*sorted(s))

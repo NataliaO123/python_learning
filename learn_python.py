@@ -4110,3 +4110,27 @@ for i in range(n - 1):
     s.intersection_update((input()))
 
 print(*sorted(s))
+
+## Одинаковые цифры
+
+s1, s2 = set(input()), set(input())
+if s1.isdisjoint(s2):
+    print('NO')
+else:
+    print('YES')
+
+## Все цифры
+
+s1, s2 = set(input()), set(input())
+print(('NO', 'YES')[s1.issuperset(s2)])
+
+## Урок информатики
+
+notes = []
+for i in range(3):
+    notes.append(set((input().split())))
+response = notes[0] & notes[1] - notes[2]
+r = list(response)
+r = [int(r[i]) for i in range(len(r))]
+print(*sorted(r, reverse = True))
+

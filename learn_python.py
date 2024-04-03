@@ -4134,3 +4134,26 @@ r = list(response)
 r = [int(r[i]) for i in range(len(r))]
 print(*sorted(r, reverse = True))
 
+## Set Generator 1
+
+items = [10, '30', 30, 10, '56', 34, '12', 90, 89, 34, 45, '67', 12, 10, 90, 23, '45', 56, '56', 1, 5, '6', 5]
+r = items
+r = {str(r[i]) for i in range(len(r))}
+temp = list(r)
+answer = [int(temp[i]) for i in range(len(temp))]
+print(*sorted(answer))
+## better solution:
+items = [10, '30', 30, 10, '56', 34, '12', 90, 89, 34, 45, '67', 12, 10, 90, 23, '45', 56, '56', 1, 5, '6', 5]
+myset = {int(i) for i in items}
+print(*sorted(myset))
+
+## Set Generator 2
+
+words = ['Plum', 'Grapefruit', 'apple', 'orange', 'pomegranate', 'Cranberry', 'lime', 'Lemon', 'grapes', 'persimmon', 'tangerine', 'Watermelon', 'currant', 'Almond']
+s = str(words)
+resp = ''
+for i in range(len(words)):
+    resp += words[i][0].lower()
+
+myset = {resp[i] for i in range(len(resp))}
+print(*sorted(myset))

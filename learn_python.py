@@ -4157,3 +4157,13 @@ for i in range(len(words)):
 
 myset = {resp[i] for i in range(len(resp))}
 print(*sorted(myset))
+
+## Урок математики
+
+set1 = set(int(i) for i in input().split())
+set2 = set(int(i) for i in input().split())
+set3 = set(int(i) for i in input().split())
+
+resp = (set1 | set2 | set3) - (set1 & set2 & set3)
+
+print(*sorted(resp))

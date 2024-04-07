@@ -4195,4 +4195,59 @@ sentence = '''My very photogenic mother died in a freak accident (picnic, lightn
 myset = {word.lower().strip('.,;:-?!()') for word in sentence.split() if len(word) < 4}
 print(*sorted(myset))
 
+## 
 
+files = ['python.png', 'qwerty.py', 'stepik.png', 'beegeek.org', 'windows.pnp', 'pen.txt', 'phone.py', 'book.txT', 'board.pNg', 'keyBoard.jpg', 'Python.PNg', 'apple.jpeg', 'png.png', 'input.tXt', 'split.pop', 'solution.Py', 'stepik.org', 'kotlin.ko', 'github.git']
+myset = {file.lower() for file in files if file.lower().endswith('.png')}
+
+print(*sorted(myset))
+
+## Домашнее задание
+
+n, m, k, p = int(input()), int(input()), int(input()), int(input())
+resp = (m - p) + p + (k - p)
+print(resp)
+
+## Восход
+
+data = input().split()
+myset = {int(data[i]) for i in range(len(data))}
+print(len(data) - len(myset))
+
+## Города
+
+n = int(input())
+db = []
+for i in range(n):
+    db.append(input().lower().split())
+city = input().lower().split()
+
+if city in db:
+    print('REPEAT')
+else:
+    db.append(city)
+    print('OK')
+
+## Книги на прочтение
+
+m, n = int(input()), int(input())
+home, school = [], []
+
+for i in range(m):
+    home.append(input())
+for j in range(n):
+    school.append(input())
+    if school[j] in home:
+        print('YES')
+    else:
+        print('NO')
+
+## Странное увлечение
+
+page1, page2 = set(input().split()), set(input().split())
+page3 = list(page1 & page2)
+page3 = [int(page3[i]) for i in range(len(page3))]
+if len(page3) > 0:
+    print(*sorted(page3, reverse = True))
+else:
+    print('BAD DAY')

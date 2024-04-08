@@ -4251,3 +4251,114 @@ if len(page3) > 0:
     print(*sorted(page3, reverse = True))
 else:
     print('BAD DAY')
+
+## Онлайн-школа 1
+
+shown = {int(i) for i in input().split()}
+remembered = {int(i) for i in input().split()}
+
+if shown == remembered:
+    print('YES')
+else:
+    print('NO')
+
+## Онлайн-школа 2
+
+m, i = int(input()), int(input())
+math, info = [], []
+
+for j in range(m):
+    math.append(input())
+for j in range(i):
+    info.append(input())
+math_only = set(math) - set(info)
+print(len(math_only))
+
+## Онлайн-школа 3
+
+m, i = int(input()), int(input())
+math, info = [], []
+
+for j in range(m):
+    math.append(input())
+for j in range(i):
+    info.append(input())
+one_only = set(math) ^ set(info)
+if len(one_only) > 0:
+    print(len(one_only))
+else:
+    print('NO')
+
+## Онлайн-школа 4
+
+list1 = {i for i in input().split()}
+list2 = {i for i in input().split()}
+print(*sorted(list1 | list2))
+
+## Онлайн-школа 5
+
+m, i = int(input()), int(input())
+students = [input() for _ in range(m + i)]
+myset = set(students)
+
+if len(students) == len(myset):
+    print(len(students))
+elif (len(students) / 2) == len(myset):
+    print('NO')
+else:
+    resp = len(students) - ((len(students) - len(myset)) * 2)
+    print(resp)
+
+## Онлайн-школа 6
+
+m = int(input())
+students = []
+for i in range(m):
+    for j in range(int(input())):
+        students.append(input())
+good_students = set()
+for student in students:
+    if students.count(student) == m:
+        good_students.add(student)
+print(*sorted(good_students), sep = '\n')
+
+## Dictionaries!
+
+my_dict = {1.12: 'aa', 67.9: 45, 3.11: 'ccc', 7.9: 'dd', 9.2: 'ee', 7.1: 'ff', 0.12: 'qq', 1.91: 'aa', 10.12: [1, 2, 3], 99.0: {9, 0, 1}}
+print(min(my_dict) + max(my_dict))
+
+##
+
+users = [{'name': 'Todd', 'phone': '551-1414', 'email': 'todd@gmail.com'},
+         {'name': 'Helga', 'phone': '555-1618', 'email': 'helga@mail.net'},
+         {'name': 'Olivia', 'phone': '449-3141', 'email': ''},
+         {'name': 'LJ', 'phone': '555-2718', 'email': 'lj@gmail.net'},
+         {'name': 'Ruslan', 'phone': '422-145-9098', 'email': 'rus-lan.cha@yandex.ru'},
+         {'name': 'John', 'phone': '233-421-32', 'email': ''},
+         {'name': 'Lara', 'phone': '+7998-676-2532', 'email': 'g.lara89@gmail.com'},
+         {'name': 'Alina', 'phone': '+7948-799-2434', 'email': 'ali.ch.b@gmail.com'},
+         {'name': 'Robert', 'phone': '420-2011', 'email': ''},
+         {'name': 'Riyad', 'phone': '128-8890-128', 'email': 'r.mahrez@mail.net'},
+         {'name': 'Khabib', 'phone': '+7995-600-9080', 'email': 'kh.nurmag@gmail.com'},
+         {'name': 'Olga', 'phone': '6449-314-1213', 'email': ''},
+         {'name': 'Roman', 'phone': '+7459-145-8059', 'email': 'roma988@mail.ru'},
+         {'name': 'Maria', 'phone': '12-129-3148', 'email': 'm.sharapova@gmail.com'},
+         {'name': 'Fedor', 'phone': '+7445-341-0545', 'email': ''},
+         {'name': 'Tim', 'phone': '242-449-3141', 'email': 'timm.ggg@yandex.ru'}]
+
+resp1 = []
+for user in users:
+    if user['phone'][-1] == '8':
+        resp1.append(user['name'])
+print(*sorted(resp1))
+
+resp2 = []
+for user in users:
+    if 'email' in user and user['email'] == '':
+        resp2.append(user['name'])
+    elif 'email' not in user:
+        resp2.append(user['name'])
+print(*sorted(resp2))
+## or:
+resp2 = [user['name'] for user in users if 'email' not in user or user['email'] == '']
+print(*sorted(resp2))

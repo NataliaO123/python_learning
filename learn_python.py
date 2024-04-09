@@ -4362,3 +4362,71 @@ print(*sorted(resp2))
 ## or:
 resp2 = [user['name'] for user in users if 'email' not in user or user['email'] == '']
 print(*sorted(resp2))
+
+## Строковое представление
+
+mydict = {'0': 'zero',
+          '1': 'one',
+          '2': 'two',
+          '3': 'three',
+          '4': 'four',
+          '5': 'five',
+          '6': 'six',
+          '7': 'seven',
+          '8': 'eight',
+          '9': 'nine'}
+
+data = input()
+
+for i in data:
+    print(mydict[i], end = ' ')
+
+## Информация об учебных курсах
+
+d = {
+    'CS101': {'audience_number': '3004', 'teacher': 'Хайнс', 'time': '8:00'}, 
+    'CS102': {'audience_number': '4501', 'teacher': 'Альварадо', 'time': '9:00'}, 
+    'CS103': {'audience_number': '6755', 'teacher': 'Рич', 'time': '10:00'}, 
+    'NT110': {'audience_number': '1244', 'teacher': 'Берк', 'time': '11:00'}, 
+    'CM241': {'audience_number': '1411', 'teacher': 'Ли', 'time': '13:00'}
+}
+
+n = input()
+
+r = f"{n}: {d[n]['audience_number']}, {d[n]['teacher']}, {d[n]['time']}"
+print(r)
+
+## Набор сообщений (Nokia 3310)
+
+message = input().upper()
+
+d = {
+    '1': '.,?!:',
+    '2': 'ABC',
+    '3': 'DEF',
+    '4': 'GHI',
+    '5': 'JKL',
+    '6': 'MNO',
+    '7': 'PQRS',
+    '8': 'TUV',
+    '9': 'WXYZ',
+    '0': ' '}
+
+for letter in message:
+    for key, values in d.items():
+        if letter in values:
+            count = values.index(letter) + 1
+            print(count * key, end = '')
+            break           
+
+## Код Морзе
+
+message = input().upper()
+
+letters = [c for c in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789']
+morse = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..', '-----', '.----', '..---', '...--', '....-', '.....', '-....', '--...', '---..', '----.']
+morse_code = dict(zip(letters, morse))
+
+for letter in message:
+    if letter in morse_code:
+        print(morse_code[letter], end = ' ')

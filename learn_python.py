@@ -4430,3 +4430,11 @@ morse_code = dict(zip(letters, morse))
 for letter in message:
     if letter in morse_code:
         print(morse_code[letter], end = ' ')
+
+## 
+
+result = {i: i ** 2 for i in range(1, 16)}
+## or:
+result = {}
+for i in range(1, 16):
+    result.setdefault(i, i ** 2)

@@ -4476,3 +4476,28 @@ for key, value in mydict.items():
         resp.append(key)
 
 print(min(resp))
+
+## распаковка кортежа - множественное присваивание
+
+pets = [('Hatiko', 'Parker', 'Wilson', 50),
+        ('Rusty', 'Josh', 'King', 25),
+        ('Fido', 'John', 'Smith', 28),
+        ('Butch', 'Jake', 'Smirnoff', 18),
+        ('Odi', 'Emma', 'Wright', 18),
+        ('Balto', 'Josh', 'King', 25),
+        ('Barry', 'Josh', 'King', 25),
+        ('Snape', 'Hannah', 'Taylor', 40),
+        ('Horry', 'Martha', 'Robinson', 73),
+        ('Giro', 'Alex', 'Martinez', 65),
+        ('Zooma', 'Simon', 'Nevel', 32),
+        ('Lassie', 'Josh', 'King', 25),
+        ('Chase', 'Martha', 'Robinson', 73),
+        ('Ace', 'Martha', 'Williams', 38),
+        ('Rocky', 'Simon', 'Nevel', 32)]
+
+result = {}
+
+for pet, first_name, second_name, age in pets:
+    owner = (first_name, second_name, age)
+
+    result.setdefault(owner, []).append(pet)

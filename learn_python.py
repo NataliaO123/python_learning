@@ -4501,3 +4501,52 @@ for pet, first_name, second_name, age in pets:
     owner = (first_name, second_name, age)
 
     result.setdefault(owner, []).append(pet)
+
+## Самое редкое слово
+
+text = input().lower().split()
+text = [i.strip('.,!?:;-') for i in text]
+
+mydict = {}
+
+for word in text:
+    mydict[word] = mydict.get(word, 0) + 1
+
+resp = []
+temp = min(mydict.values())
+
+for key, value in mydict.items():
+    if value == temp:
+        resp.append(key)
+    
+print(min(resp))
+
+## Исправление дубликатов
+
+ids = input().split()
+temp = 0
+resp = []
+for i in range(len(ids)):
+    temp = ids[:i + 1].count(ids[i])
+    if temp > 1:
+        resp.append(ids[i] + '_' + str(temp - 1))
+    else:
+        resp.append(ids[i])            
+
+print(*resp)
+
+## Словарь программиста
+
+n = int(input())
+mydict = {}
+for i in range(n):
+    key, value = input().split(': ')
+    mydict[key.lower()] = value
+
+m = int(input())
+inspected = []
+for i in range(m):
+    inspected.append(input().lower())
+
+for elem in inspected:
+    print(mydict.get(elem, 'Не найдено'))

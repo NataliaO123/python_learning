@@ -4550,3 +4550,86 @@ for i in range(m):
 
 for elem in inspected:
     print(mydict.get(elem, 'Не найдено'))
+
+## Анаграммы 1
+
+test1, test2 = list(input()), list(input())
+mydict1 = {}
+mydict2 = {}
+
+for elem in test1:
+    mydict1[elem] = mydict1.get(elem, 0) + 1
+    
+for elem in test2:
+    mydict2[elem] = mydict2.get(elem, 0) + 1
+
+if mydict1 == mydict2:
+    print('YES')
+else:
+    print('NO')
+
+## Анаграммы 2
+
+lane1, lane2 = input().lower().split(), input().lower().split()
+lane1 = [i.strip('.,!?:;-') for i in lane1]
+lane2 = [i.strip('.,!?:;-') for i in lane2]
+
+mydict1 = {}
+mydict2 = {}
+
+for elem in lane1:
+    for i in elem:
+        mydict1[i] = mydict1.get(i, 0) + 1
+        
+for elem in lane2:
+    for i in elem:
+        mydict2[i] = mydict1.get(i, 0) + 1
+
+if sorted(mydict1) == sorted(mydict2):
+    print('YES')
+else:
+    print('NO')
+## better-faster-stronger:
+lane1 = [i for i in input().lower() if i.isalpha()]
+lane2 = [i for i in input().lower() if i.isalpha()]
+print('YES' if sorted(lane1) == sorted(lane2) else 'NO')
+
+## Словарь синонимов
+
+n = int(input())
+mydict = {}
+
+for i in range(n):
+    key, value = input().split(' ')
+    mydict[key] = value
+test = input()
+
+for key, value in mydict.items():
+    if test in value and value == test:
+        print(key)
+    elif test in key and key == test:
+        print(value)
+
+## Страны и города
+
+d = {i[0]: i[1:] for i in [input().split() for _ in range(int(input()))]}
+inspect = [input().split() for i in range(int(input()))]
+
+for city in inspect:
+    for key, value in d.items():
+        if city in value:
+            print(key)
+
+## Телефонная книга
+
+n = int(input())
+book = {}
+for i in range(n):
+    value, key = input().split(' ')
+    book[key] = book.get(value, '') + value
+
+m = int(input())
+inspect = []
+for j in range(m):
+    inspect.append(input().lower())
+

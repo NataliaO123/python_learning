@@ -4622,14 +4622,9 @@ for city in inspect:
 
 ## Телефонная книга
 
-n = int(input())
-book = {}
-for i in range(n):
-    value, key = input().split(' ')
-    book[key] = book.get(value, '') + value
-
-m = int(input())
-inspect = []
-for j in range(m):
-    inspect.append(input().lower())
-
+dct = {}
+for _ in range(int(input())):
+    phone, name = input().lower().split()
+    dct.setdefault(name, []).append(phone)
+for _ in range(int(input())):
+    print(*dct.get(input().lower(), ['абонент не найден']))

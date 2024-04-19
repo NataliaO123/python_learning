@@ -4628,3 +4628,23 @@ for _ in range(int(input())):
     dct.setdefault(name, []).append(phone)
 for _ in range(int(input())):
     print(*dct.get(input().lower(), ['абонент не найден']))
+
+## Секретное слово
+
+secret = input()
+secret_dict = {}
+for elem in secret:
+    secret_dict[elem] = secret_dict.get(elem, 0) + 1
+
+n = int(input())
+dict = {}
+for i in range(n):
+    key, value = input().split(': ')
+    dict[int(value)] = key
+
+resp = []
+
+for i in secret:
+    resp.append(dict[secret_dict[i]])
+    
+print(*resp, sep = '')

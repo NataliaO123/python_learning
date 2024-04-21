@@ -4676,8 +4676,6 @@ result = {int(value): key for value, key in [l.split(':') for l in s.split()]}
 ##
 
 numbers = [34, 10, 4, 6, 10, 23, 90, 100, 21, 35, 95, 1, 36, 38, 19, 1, 6, 87, 1000, 13456, 360]
-s_numbers = []
 
-for i in range(1, numbers[i] + 1):
-    if numbers[i] % i == 0:
-        s_numbers.append(i)
+result = {k: [num for num in range(1, k + 1) if k % num == 0] for k in numbers}
+print(result)

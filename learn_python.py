@@ -4648,3 +4648,36 @@ for i in secret:
     resp.append(dict[secret_dict[i]])
     
 print(*resp, sep = '')
+
+## dict generator
+
+numbers = [34, 10, -4, 6, 10, 23, -90, 100, 21, -35, -95, 1, 36, -38, -19, 1, 6, 87]
+
+result = {i: numbers[i] ** 2 for i in range(len(numbers))}
+
+##
+
+colors = {'c1': 'Red', 'c2': 'Grey', 'c3': None, 'c4': 'Green', 'c5': 'Yellow', 'c6': 'Pink', 'c7': 'Orange', 'c8': None, 'c9': 'White', 'c10': 'Black', 'c11': 'Violet', 'c12': 'Gold', 'c13': None, 'c14': 'Amber', 'c15': 'Azure', 'c16': 'Beige', 'c17': 'Bronze', 'c18': None, 'c19': 'Lilac', 'c20': 'Pearl', 'c21': None, 'c22': 'Sand', 'c23': None}
+
+result = {key: value for key, value in colors.items() if value}
+
+##
+
+months = {1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'}
+
+result = {value: key for key, value in months.items()}
+
+##
+
+s = '1:men 2:kind 90:number 0:sun 34:book 56:mountain 87:wood 54:car 3:island 88:power 7:box 17:star 101:ice'
+
+result = {int(value): key for value, key in [l.split(':') for l in s.split()]}
+
+##
+
+numbers = [34, 10, 4, 6, 10, 23, 90, 100, 21, 35, 95, 1, 36, 38, 19, 1, 6, 87, 1000, 13456, 360]
+s_numbers = []
+
+for i in range(1, numbers[i] + 1):
+    if numbers[i] % i == 0:
+        s_numbers.append(i)

@@ -4679,3 +4679,9 @@ numbers = [34, 10, 4, 6, 10, 23, 90, 100, 21, 35, 95, 1, 36, 38, 19, 1, 6, 87, 1
 
 result = {k: [num for num in range(1, k + 1) if k % num == 0] for k in numbers}
 print(result)
+
+##
+
+words = ['hello', 'bye', 'yes', 'no', 'python', 'apple', 'maybe', 'stepik', 'beegeek']
+
+result = {word: [ord(char) for char in word] for word in words}

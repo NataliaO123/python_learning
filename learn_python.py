@@ -4685,3 +4685,88 @@ print(result)
 words = ['hello', 'bye', 'yes', 'no', 'python', 'apple', 'maybe', 'stepik', 'beegeek']
 
 result = {word: [ord(char) for char in word] for word in words}
+
+##
+
+letters = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H', 8: 'I', 9: 'J', 10: 'K', 11: 'L', 12: 'M', 13: 'N', 14: 'O', 15: 'P', 16: 'Q', 17: 'R', 18: 'S', 19: 'T', 20: 'U', 21: 'V', 22: 'W', 23: 'X', 24: 'Y', 26: 'Z'}
+remove_keys = [1, 5, 7, 12, 17, 19, 21, 24]
+
+result = {k: v for k, v in letters.items() if k not in remove_keys}
+
+##
+
+students = {'Timur': (170, 75), 'Ruslan': (180, 105), 'Soltan': (192, 68), 'Roman': (175, 70), 'Madlen': (160, 50), 'Stefani': (165, 70), 'Tom': (190, 90), 'Jerry': (180, 87), 'Anna': (172, 67), 'Scott': (168, 78), 'John': (186, 79), 'Alex': (195, 120), 'Max': (200, 110), 'Barak': (180, 89), 'Donald': (170, 80), 'Rustam': (186, 100), 'Alice': (159, 59), 'Rita': (170, 80), 'Mary': (175, 69), 'Jane': (190, 80)}
+
+result = {k: v for k, v in students.items() if students[k][0] > 167 and students[k][1] < 75}
+
+##
+
+tuples = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12), (13, 14, 15), (16, 17, 18), (19, 20, 21), (22, 23, 24), (25, 26, 27), (28, 29, 30), (31, 32, 33), (34, 35, 36)]
+
+result = {i[0]: i[1:] for i in tuples}
+
+##
+
+student_ids = ['S001', 'S002', 'S003', 'S004', 'S005', 'S006', 'S007', 'S008', 'S009', 'S010', 'S011', 'S012', 'S013'] 
+student_names = ['Camila Rodriguez', 'Juan Cruz', 'Dan Richards', 'Sam Boyle', 'Batista Cesare', 'Francesco Totti', 'Khalid Hussain', 'Ethan Hawke', 'David Bowman', 'James Milner', 'Michael Owen', 'Gary Oldman', 'Tom Hardy'] 
+student_grades = [86, 98, 89, 92, 45, 67, 89, 90, 100, 98, 10, 96, 93]
+
+result = [{student_ids[i]: {student_names[i]: student_grades[i]}} for i in range(len(student_names))]
+## using zip:
+result = [{a: {b: c}} for a, b, c in zip(student_ids, student_names, student_grades)]
+
+## Проверь никнейм
+
+name = input()
+
+if name[0] == '@' and len(name) <= 15 and len(name) >= 5 and name.lower() == name:
+    if name[1:].isalnum():
+        print('Correct')
+    else:
+        print('Incorrect')
+else:
+    print('Incorrect')
+
+##
+
+my_dict = {'C1': [10, 20, 30, 7, 6, 23, 90], 'C2': [20, 30, 40, 1, 2, 3, 90, 12], 'C3': [12, 34, 20, 21], 'C4': [22, 54, 209, 21, 7], 'C5': [2, 4, 29, 21, 19], 'C6': [4, 6, 7, 10, 55], 'C7': [4, 8, 12, 23, 42], 'C8': [3, 14, 15, 26, 48], 'C9': [2, 7, 18, 28, 18, 28]}
+my_dict = {k: [i for i in my_dict[k] if i <= 20] for k, v in my_dict.items()}
+
+emails = {'nosu.edu': ['timyr', 'joseph', 'svetlana.gaeva', 'larisa.mamuk'], 
+          'gmail.com': ['ruslan.chaika', 'rustam.mini', 'stepik-best'], 
+          'msu.edu': ['apple.fruit', 'beegeek', 'beegeek.school'], 
+          'yandex.ru': ['surface', 'google'],
+          'hse.edu': ['tomas-henders', 'cream.soda', 'zivert'],
+          'mail.ru': ['angel.down', 'joanne', 'the.fame.moster']}
+resp = []
+temp = ''
+for k, v in emails.items():
+    for i in v:
+        temp = i + '@' + k
+        resp.append(temp)
+        temp = ''
+print(*sorted(resp), sep = '\n')
+
+## DNA
+
+c_rule = {'G': 'C', 'C': 'G', 'T': 'A', 'A': 'U'}
+test_dna = input()
+test_rna = {i: c_rule[test_dna[i]] for i in range(len(test_dna))}
+for v in test_rna.values():
+    print(v, end = '')
+
+## Порядковый номер
+
+s = input().split()
+d = {}
+for i in s:
+    d[i] = d.get(i, 0) + 1
+    print(d[i], end = ' ')
+## or:
+test = input().split()
+temp = 0
+resp = []
+for i in range(len(test)):
+    temp = test[:i + 1].count(test[i])
+    resp.append(temp)
+print(*resp)

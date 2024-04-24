@@ -4770,3 +4770,95 @@ for i in range(len(test)):
     temp = test[:i + 1].count(test[i])
     resp.append(temp)
 print(*resp)
+
+## Scrabble
+
+word = input()
+d = {
+    "AEILNORSTU": 1,
+    "DG": 2,
+    "BCMP": 3,
+    "FHVWY": 4,
+    "K": 5,
+    "JX": 8,
+    "QZ": 10
+}
+
+result = 0
+for i in word:
+    for k, v in d.items():
+        if i in k:
+            result += d[k]
+print(result)
+
+## query string
+
+def build_query_string(params):
+    resp = []
+    
+    for k, v in sorted(params.items()):
+        resp.append(str(k) + '=' + str(v))
+    return '&'.join(resp)
+
+## merge
+
+def merge(values):
+    resp = {}
+    for i in values:
+        for k, v in i.items():
+            resp.setdefault(k, set()).add(v)
+    return resp
+
+##
+
+operation_dict = {'execute': 'X', 'read': 'R', 'write': 'W'}
+
+n = int(input())
+allowed_operations = {}
+for _ in range(n):
+    inputs = input().split()
+    filename = inputs[0]
+    operations = set(inputs[1:])
+    allowed_operations[filename] = operations
+
+m = int(input())
+for _ in range(m):
+    operation, filename = input().split()
+    if filename in allowed_operations and operation_dict.get(operation) in allowed_operations[filename]:
+        print("OK")
+    else:
+        print("Access denied")
+
+## e-shopping
+
+n = int(input())
+client, item, amount = [], [], []
+for i in range(n):
+    temp = input().split()
+    client.append(temp[0])
+    item.append(temp[1])
+    amount.append(int(temp[2]))
+
+checkout = {}
+for c, i, a in zip(client, item, amount):
+    if c in checkout:
+        checkout[c].append((i, a))
+    else:
+        checkout[c] = [(i, a)]
+
+for c, p in sorted(checkout.items()):
+    print(c + ":")
+    for item, amount in sorted(p):
+        print(f"{item} {amount}")
+## correct solution:
+data = {}
+
+for _ in range(int(input())):
+    name, product, count = input().split()
+    data.setdefault(name, {})
+    data[name][product] = data[name].get(product, 0) + int(count)
+    
+for person, products in sorted(data.items()):
+    print(f'{person}:')
+    for product, count in sorted(products.items()):
+        print(product, count)

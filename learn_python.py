@@ -4862,3 +4862,32 @@ for person, products in sorted(data.items()):
     print(f'{person}:')
     for product, count in sorted(products.items()):
         print(product, count)
+
+## Random coin
+
+import random
+
+n = int(input())
+for i in range(n):
+    resp = random.randint(1, 2)
+    if resp == 1:
+        print('Орел')
+    else:
+        print('Решка')
+
+## Random dice
+
+import random
+
+n = int(input()) 
+for i in range(n):
+    print(random.randrange(1, 6))
+
+## Pass generator
+
+import random
+
+length = int(input()) 
+new_pass = ''
+for i in range(length):
+    

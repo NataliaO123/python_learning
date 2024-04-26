@@ -4886,8 +4886,23 @@ for i in range(n):
 ## Pass generator
 
 import random
-
 length = int(input()) 
+base = []
 new_pass = ''
 for i in range(length):
-    
+    base = list(chr(random.randrange(65, 90))) + list(chr(random.randrange(97, 122)))
+    new_pass += base[random.randrange(0, 1)]
+print(new_pass)
+
+##
+
+import random
+
+nums = []
+
+for i in range(7):
+    temp = 0
+    temp = random.randrange(1, 49)
+    nums.append(temp)
+
+print(*sorted(nums))

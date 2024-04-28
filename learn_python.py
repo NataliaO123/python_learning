@@ -4906,3 +4906,58 @@ for i in range(7):
     nums.append(temp)
 
 print(*sorted(nums))
+
+##
+import random
+
+def generate_ip():
+    
+    ip = '.'.join([str(random.randrange(0, 255)) for _ in range(4)])
+    return ip
+
+print(generate_ip())  
+
+## Почтовый индекс в Латверии
+
+import random
+
+def generate_index():
+    ind0 = chr(random.randrange(65, 90)) + chr(random.randrange(65, 90)) + str(random.randrange(0, 9)) + str(random.randrange(0, 9))
+    ind1 = str(random.randrange(0, 9)) + str(random.randrange(0, 9)) + chr(random.randrange(65, 90)) + chr(random.randrange(65, 90))
+    latveria_index = ind0 + '_' + ind1
+    
+    return latveria_index
+
+print(generate_index())
+
+## shuffle)
+
+import random
+
+matrix = [[1, 2, 3, 4],
+          [5, 6, 7, 8],
+          [9, 10, 11, 12],
+          [13, 14, 15, 16]]
+
+random.shuffle(matrix)
+
+##
+
+import random
+
+myset = set()
+while len(myset) < 100:
+    temp = random.randrange(1000000, 9999999)
+    myset.add(temp)
+
+print(*myset, sep = '\n')
+
+##
+
+import random
+
+word = input()
+mylist = list(word)
+random.shuffle(mylist)
+
+print(*mylist, sep = '')

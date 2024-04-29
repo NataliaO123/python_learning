@@ -4961,3 +4961,36 @@ mylist = list(word)
 random.shuffle(mylist)
 
 print(*mylist, sep = '')
+
+## Bingo)
+
+import random
+
+bingo_card = [[0] * 5 for _ in range(5)]
+for i in range(5):
+    for j in range(5):
+        if i == j == 2:
+            bingo_card[i][j] = 0
+        else:
+            bingo_card[i][j] = random.randrange(1, 75)
+
+for i in range(5):
+    for j in range(5):
+        print(str(bingo_card[i][j]).ljust(3), end = '')
+    print()  
+##
+import random
+
+bingo_card = [[0] * 5 for _ in range(5)]
+
+temp = [str(i) for i in range(1, 76)]
+random.shuffle(temp)
+resp = random.sample(temp, 25)
+
+for i in range(5):
+    for j in range(5):
+        bingo_card[i][j] = str(temp.pop()).ljust(3)
+
+bingo_card[2][2] = str(0).ljust(3)
+for i in bingo_card:
+    print(*i, sep = '')

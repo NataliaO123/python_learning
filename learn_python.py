@@ -4994,3 +4994,50 @@ for i in range(5):
 bingo_card[2][2] = str(0).ljust(3)
 for i in bingo_card:
     print(*i, sep = '')
+
+##
+
+import random
+import string
+
+def generate_password(length):
+
+    base = []
+    base.append(string.ascii_letters)
+    base.append(string.digits)
+    restricted = ['l', 'I', '1', 'o', 'O', '0']
+
+    b = ''
+    for i in base:
+        for j in i:
+            if j not in restricted:
+                b += str(j)
+        
+    pwd = ''
+    pwd = random.sample(b, length)
+
+    return pwd
+
+def generate_passwords(count, length):
+
+    for _ in range(count):
+        print(*generate_password(length), sep = '')
+
+n, m = int(input()), int(input())
+generate_passwords(n, m)
+## faster-better with string and set data type:
+import random
+import string
+
+def generate_password(length):
+    characters = string.ascii_letters + string.digits
+    restricted = {'l', 'I', '1', 'o', 'O', '0'}
+    available_chars = ''.join(c for c in characters if c not in restricted)
+    return ''.join(random.choice(available_chars) for _ in range(length))
+
+def generate_passwords(count, length):
+    for _ in range(count):
+        print(generate_password(length))
+
+n, m = int(input()), int(input())
+generate_passwords(n, m)

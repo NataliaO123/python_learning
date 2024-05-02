@@ -5205,9 +5205,9 @@ print(a, '/', b, '=', a1 / b1)
 from fractions import Fraction
 
 n = int(input())
-s = 0
+s = Fraction(0)
 
-for i in range(n):
-    s += 1 / (i**2)
+for i in range(1, n + 1):
+    s += Fraction(1, i**2)
 
-print(Fraction(s))
+print(s)

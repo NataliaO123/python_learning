@@ -5211,3 +5211,32 @@ for i in range(1, n + 1):
     s += Fraction(1, i**2)
 
 print(s)
+
+## Сумма дробей 2
+
+from fractions import Fraction
+from math import factorial
+
+n = int(input())
+s = Fraction(0)
+
+for i in range(1, n + 1):
+    s += Fraction(1, factorial(i))
+
+print(s)
+
+## Упорядоченные дроби
+
+from fractions import Fraction
+
+n = int(input())
+resp = set()
+
+for i in range(1, n+1):
+    for j in range(1, n+1):
+        if i < j:
+            temp = Fraction(i, j)
+            resp.add(temp)
+
+for i in sorted(resp):
+    print(i)

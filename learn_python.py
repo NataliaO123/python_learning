@@ -5240,3 +5240,96 @@ for i in range(1, n+1):
 
 for i in sorted(resp):
     print(i)
+
+## Юный математик
+
+from fractions import Fraction
+
+n = int(input())
+resp = set()
+
+for i in range(1, n):
+    for j in range(1, n):
+        if i < j:
+            resp.add(Fraction(i, j))
+
+temp = []
+for i in resp:
+    if i.numerator + i.denominator == n and gcd(i.numerator, i.denominator) == 1:
+        temp.append((i))
+        
+print(max(temp))
+
+## Комплексные числа в Python
+
+z1, z2 = complex(input()), complex(input())
+
+print(f'{z1} + {z2} = {z1 + z2}')
+print(f'{z1} - {z2} = {z1 - z2}')
+print(f'{z1} * {z2} = {z1 * z2}')
+
+##
+
+numbers = [3 + 4j, 3 + 1j, -7 + 3j, 4 + 8j, -8 + 10j, -3 + 2j, 3 - 2j, -9 + 9j, -1 - 1j, -1 - 10j, -20 + 15j, -21 + 1j, 1j, -3 + 8j, 4 - 6j, 8 + 2j, 2 + 3j]
+
+temp_list = [abs(i) for i in numbers]
+temp_index = temp_list.index(max(temp_list))
+
+print(numbers[temp_index])
+print(max(temp_list))
+
+## Сопряженные числа
+
+n = int(input())
+z1, z2 = complex(input()), complex(input())
+
+z3, z4 = z1.conjugate(), z2.conjugate()
+
+resp = z1**n + z2**n + z3**n + z4**(n+1)
+
+print(resp)
+
+##
+
+def matrix(n=None, m=None, value=0):
+    if n is None:
+        n = 1
+    if m is None:
+        m = n
+    
+    matrix = [[value] * m for _ in range(n)]
+    return matrix
+
+##
+
+def sq_sum(*args):
+    result = 0
+    for i in range(len(args)):
+        result += args[i]**2
+    return result
+
+##
+
+from decimal import *
+
+def mean(*args):
+    result = 0
+    temp = []
+    
+    for i in range(len(args)):
+        if type(args[i]) in (int, float):
+            result += Decimal(args[i])
+            temp.append(args[i])
+            
+    if len(temp) == 0:
+        return 0.0
+    else:
+        return result/len(temp)
+
+##
+
+def greet(name, *args):
+    if len(args) > 0:
+        return(f"Hello, {name} and {' and '.join(args)}!")
+    else:
+        return(f"Hello, {name}!")

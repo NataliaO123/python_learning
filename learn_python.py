@@ -5333,3 +5333,18 @@ def greet(name, *args):
         return(f"Hello, {name} and {' and '.join(args)}!")
     else:
         return(f"Hello, {name}!")
+
+## 
+
+def print_products(*args):
+    temp = list()
+    
+    for i in range(len(args)):
+        if type(args[i]) == str and len(args[i]) > 0:
+            temp.append(args[i])
+            
+    if len(temp) == 0:
+        return(print('Нет продуктов'))   
+    else:
+        result = [f"{i+1}) {temp[i]}" for i in range(len(temp))]
+        return(print(*result, sep = '\n'))

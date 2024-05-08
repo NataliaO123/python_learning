@@ -5348,3 +5348,9 @@ def print_products(*args):
     else:
         result = [f"{i+1}) {temp[i]}" for i in range(len(temp))]
         return(print(*result, sep = '\n'))
+
+##
+
+def info_kwargs(**kwargs):
+    for k, v in sorted(kwargs.items()):
+        print(f"{k}: {v}")

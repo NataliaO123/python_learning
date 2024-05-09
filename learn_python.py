@@ -5354,3 +5354,40 @@ def print_products(*args):
 def info_kwargs(**kwargs):
     for k, v in sorted(kwargs.items()):
         print(f"{k}: {v}")
+
+
+##
+
+numbers = [(10, 10, 10), (30, 45, 56), (81, 39), (1, 2, 3), (12,), (-2, -4, 100), (1, 2, 99), (89, 9, 34), (10, 20, 30, -2), (50, 40, 50), (34, 78, 65), (-5, 90, -1, -5), (1, 2, 3, 4, 5, 6), (-9, 8, 4), (90, 1, -45, -21)]
+temp = []
+
+for i in range(len(numbers)):
+    temp.append(sum(numbers[i])/len(numbers[i]))
+
+print(numbers[temp.index(min(temp))])
+print(numbers[temp.index(max(temp))])
+## better:
+def avg(*args):
+    if len(args) == 0:
+        return 0
+    return sum(*args)/len(*args)
+
+print(min(numbers, key=avg), max(numbers, key=avg), sep='\n') 
+
+##
+
+points = [(-1, 1), (5, 6), (12, 0), (4, 3), (0, 1), (-3, 2), (0, 0), (-1, 3), (2, 0), (3, 0), (-9, 1), (3, 6), (8, 8)]
+
+def where_is_point(point):
+    return (point[0]**2 + point[1]**2)**0.5
+
+print(sorted(points, key=where_is_point))
+
+##
+
+numbers = [(10, 10, 10), (30, 45, 56), (81, 80, 39), (1, 2, 3), (12, 45, 67), (-2, -4, 100), (1, 2, 99), (89, 90, 34), (10, 20, 30), (50, 40, 50), (34, 78, 65), (-5, 90, -1)]
+
+def sorting(tpl):
+    return min(tpl) + max(tpl)
+
+print(sorted(numbers, key=sorting))

@@ -5391,3 +5391,35 @@ def sorting(tpl):
     return min(tpl) + max(tpl)
 
 print(sorted(numbers, key=sorting))
+
+## Математические функции
+
+import math
+
+def f1(x):
+    return x**2
+
+def f2(x):
+    return x**3
+
+def f3(x):
+    return x**0.5
+
+def f4(x):
+    return abs(x)
+
+def f5(x):
+    return math.sin(x)
+
+scope = {
+    'квадрат': f1,
+    'куб': f2
+    'корень': f3,
+    'модуль': f4,
+    'синус': f5
+}
+
+x = int(input())
+goal = input()
+
+print(scope[goal](x))

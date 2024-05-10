@@ -5423,3 +5423,17 @@ x = int(input())
 goal = input()
 
 print(scope[goal](x))
+
+##
+
+def sum_of_numbers(num):
+    s = 0
+    while num > 0:
+        s += num % 10
+        num //= 10
+    return s
+
+mystr = input().split()
+mylst = [int(i) for i in mystr]
+
+print(*sorted(mylst, key=sum_of_numbers))

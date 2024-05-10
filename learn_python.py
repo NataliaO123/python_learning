@@ -5424,7 +5424,7 @@ goal = input()
 
 print(scope[goal](x))
 
-##
+##сортировка-1
 
 def sum_of_numbers(num):
     s = 0
@@ -5437,3 +5437,11 @@ mystr = input().split()
 mylst = [int(i) for i in mystr]
 
 print(*sorted(mylst, key=sum_of_numbers))
+
+## сортировка-2
+
+def comparator(num):
+    return sum([int(i) for i in str(num)])
+
+numbers = sorted([int(i) for i in input().split()])
+print(*sorted(numbers, key=comparator))

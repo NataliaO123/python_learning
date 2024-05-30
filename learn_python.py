@@ -5584,3 +5584,14 @@ data = [['Tokyo', 35676000, 'primary'],
         ['Moscow', 10452000, 'primary'],
         ['Istanbul', 10061000, 'admin'],
         ['Paris', 9904000, 'primary']]
+
+def f(your_list):
+    resp = []
+    for i in range(len(your_list)):
+        if your_list[i][1] >= 10000000 and your_list[i][2] == 'primary':
+            resp.append(your_list[i][0])
+    return resp
+
+filtered_data = f(data)
+result = reduce(lambda x, y: f'{x}, {y}' if x != 'Cities:' else f'{x} {y}', sorted(filtered_data), 'Cities:')
+print(result)

@@ -5595,3 +5595,14 @@ def f(your_list):
 filtered_data = f(data)
 result = reduce(lambda x, y: f'{x}, {y}' if x != 'Cities:' else f'{x} {y}', sorted(filtered_data), 'Cities:')
 print(result)
+
+##
+
+func = lambda num: num % 13 == 0 or num % 19 == 0
+num = int(input())
+print(func(num))
+
+##
+func = lambda your_lane: your_lane[0] in 'aA' and your_lane[-1] in 'aA'
+## or:
+func = lambda x: x.lower().startswith('a') and x.lower().endswith('a')

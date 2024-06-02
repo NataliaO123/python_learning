@@ -5606,3 +5606,9 @@ print(func(num))
 func = lambda your_lane: your_lane[0] in 'aA' and your_lane[-1] in 'aA'
 ## or:
 func = lambda x: x.lower().startswith('a') and x.lower().endswith('a')
+
+##
+
+is_non_negative_num = lambda your_lane: your_lane.count('.') <= 1 and your_lane.replace('.', '', 1) and your_lane.replace('.', '', 1) and '-' not in your_lane and your_lane.upper() == your_lane.lower()
+
+print(is_non_negative_num('1.23'))

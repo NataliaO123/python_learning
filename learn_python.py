@@ -5616,3 +5616,9 @@ print(is_non_negative_num('1.23'))
 ##
 
 is_num = lambda your_lane: your_lane.count('.') <= 1 and your_lane.replace('.', '', 1) and  your_lane.count('-') <= 1 and your_lane.upper() == your_lane.lower() and '-' not in your_lane[1:]
+
+##
+
+words = ['beverage', 'monday', 'abroad', 'bias', 'abuse', 'abolish', 'abuse', 'abuse', 'bid', 'wednesday', 'able', 'betray', 'accident', 'abduct', 'bigot', 'bet', 'abandon', 'besides', 'access', 'friday', 'bestow', 'abound', 'absent', 'beware', 'abundant', 'abnormal', 'aboard', 'about', 'accelerate', 'abort', 'thursday', 'tuesday', 'sunday', 'berth', 'beyond', 'benevolent', 'abate', 'abide', 'bicycle', 'beside', 'accept', 'berry', 'bewilder', 'abrupt', 'saturday', 'accessory', 'absorb']
+
+print(*sorted(filter(lambda word: len(word) == 6, words)))

@@ -5631,3 +5631,11 @@ new1 = list(filter(lambda num: num <= 47 or (num % 2 == 0 and num > 47), numbers
 new2 = list(map(lambda num: num // 2 if num % 2== 0 else num, new1))
 
 print(*new2, sep=' ')
+
+##
+
+data = [(19542209, 'New York'), (4887871, 'Alabama'), (1420491, 'Hawaii'), (626299, 'Vermont'), (1805832, 'West Virginia'), (39865590, 'California'), (11799448, 'Ohio'), (10711908, 'Georgia'), (10077331, 'Michigan'), (10439388, 'Virginia'), (7705281, 'Washington'), (7151502, 'Arizona'), (7029917, 'Massachusetts'), (6910840, 'Tennessee')]
+
+new_data = sorted(data, key=lambda data: data[1][-1], reverse=True)
+for i in range(len(new_data)):
+    print(f'{new_data[i][1]}: {new_data[i][0]}')

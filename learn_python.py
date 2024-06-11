@@ -5660,3 +5660,9 @@ mixed_list = ['beside', 48, 'accelerate', 28, 'beware', 'absorb', 'besides', 'be
 words = sorted(list(filter(lambda num: type(num) == int, mixed_list)))
 nums = sorted(list(filter(lambda num: type(num) == str, mixed_list)))
 print(*(words + nums))
+
+## Противоположный цвет
+
+rgb = input().split()
+new_color = list(map(lambda value: 255 - int(value), rgb))
+print(*new_color)

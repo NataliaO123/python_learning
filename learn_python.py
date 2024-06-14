@@ -5666,3 +5666,13 @@ print(*(words + nums))
 rgb = input().split()
 new_color = list(map(lambda value: 255 - int(value), rgb))
 print(*new_color)
+
+##
+
+numbers = [10, 30, 20, 50, 40, 60, 70, 80]
+
+total = 0
+for index, number in enumerate(numbers, 1):
+    if index % 2 == 0:
+        total += number
+print(total)

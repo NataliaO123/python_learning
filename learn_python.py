@@ -5684,3 +5684,17 @@ words2 = ['林檎', 'パイナップル', 'オレンジ', '柿']
 words3 = ['apple', 'pineapple', 'orange', 'persimmon', 'pomegranate']
 
 print(len(list(zip(words1, words2, words3))))
+
+##
+
+def ignore_command(command):
+    ignore = ['alias', 'configuration', 'ip', 'sql', 'select', 'update', 'exec', 'del', 'truncate']
+
+    for word in ignore:
+        if word in command:
+            return True
+    return False
+
+def ignore_command(command):
+    ignore = ['alias', 'configuration', 'ip', 'sql', 'select', 'update', 'exec', 'del', 'truncate']
+    return any(word in command for word in ignore)

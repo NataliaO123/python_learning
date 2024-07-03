@@ -5707,3 +5707,22 @@ population = [145_934_462, 331_002_651, 80_345_321, 67_886_011, 65_273_511, 1_38
 
 for i, j, k in zip(capitals, countries, population):
     print(f"{i} is the capital of {j}, population equal {k} people.")
+
+## Внутри шара
+
+def is_inside(coordinates, radius):
+    return sum(c ** 2 for c in coordinates) <= radius ** 2
+          
+data = []
+for _ in range(3):
+    data.append(input().split())
+
+abscissas = [float(x) for x in data[0]]
+ordinates = [float(y) for y in data[1]]
+applicates = [float(z) for z in data[2]]
+
+rad = 2
+coordinates_list = list(zip(abscissas, ordinates, applicates))
+all_inside = all(is_inside(coordinates, rad) for coordinates in coordinates_list)
+
+print(all_inside)

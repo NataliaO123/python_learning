@@ -5726,3 +5726,12 @@ coordinates_list = list(zip(abscissas, ordinates, applicates))
 all_inside = all(is_inside(coordinates, rad) for coordinates in coordinates_list)
 
 print(all_inside)
+
+## Корректный IP-адрес
+
+def norm_digit(digit):
+    return digit.isdigit() and (int(digit) >= 0 and int(digit) <= 255)
+
+print(all(norm_digit(i) for i in (input().split('.'))))
+
+

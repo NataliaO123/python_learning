@@ -5734,4 +5734,33 @@ def norm_digit(digit):
 
 print(all(norm_digit(i) for i in (input().split('.'))))
 
+## Interesting number
 
+def is_interesting(num):
+    components = []
+    temp = 0
+    start = num
+
+    while num > 0:
+        temp = num % 10
+        if temp == 0:
+            return False
+        components.append(temp)
+        num //= 10
+
+    return all(start % i == 0 for i in components)
+
+a, b = int(input()), int(input())
+response = list(i for i in range(a, b+1) if is_interesting(i))
+print(*response)
+
+## Password
+
+p = input()
+if len(p) >= 7:
+    if any(c.islower() for c in p) and any(c.isupper() for c in p) and any(c.isdigit() for c in p):
+        print('YES')
+    else:
+        print('NO')
+else:
+    print('NO') 

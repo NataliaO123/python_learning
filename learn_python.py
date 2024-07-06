@@ -5764,3 +5764,74 @@ if len(p) >= 7:
         print('NO')
 else:
     print('NO') 
+
+## Отличники
+
+data = []
+
+for i in range(int(input())):
+    group = []
+    for j in range(int(input())):
+        group.append(input())
+    data.append(group)
+
+resp = [any('5' in j for j in i) for i in data]
+
+if all(resp):
+    print('YES')
+else:
+    print('NO')
+
+## Письмо для экзамена
+    
+def generate_letter(mail, name, date, time, place, teacher='Тимур Гуев', number=17):
+    return f'''To: {mail}
+Приветствую, {name}!
+Вам назначен экзамен, который пройдет {date}, в {time}.
+По адресу: {place}. 
+Экзамен будет проводить {teacher} в кабинете {number}. 
+Желаем удачи на экзамене!'''
+
+## Pretty print
+
+def pretty_print(data, side='-', delimiter='|'):
+    b = delimiter + ' ' + (' ' + delimiter + ' ').join(map(str, data)) + ' ' + delimiter
+    c = ' ' + side*(len(b) - 2) + ' '
+    print( f'''{c}
+{b}
+{c}''')
+
+
+##
+    
+def concat(*args, sep=' '):
+    return f"{sep}".join(map(str, args))
+
+##
+
+def product_of_odds(data):
+    result = 1
+    for i in data:
+        if i % 2 == 1:
+            result *= i
+    return result
+#
+from functools import reduce
+
+def product_of_odds(data):
+    filtered_data = filter(lambda elem: elem % 2 == 1, data)
+    result = reduce(lambda x, y:  x * y, filtered_data, 1)
+return result
+
+##
+
+words = 'the world is mine take a look what you have started'.split()
+
+print(*map(lambda x: f'"{x}"', words))
+
+##
+
+numbers = [18, 191, 9009, 5665, 78, 77, 45, 23, 19991, 908, 8976, 6565, 5665, 10, 1000, 908, 909, 232, 45654, 786]
+print(*(str(x) for x in numbers if str(x) != str(x)[::-1]))
+
+

@@ -5834,4 +5834,50 @@ print(*map(lambda x: f'"{x}"', words))
 numbers = [18, 191, 9009, 5665, 78, 77, 45, 23, 19991, 908, 8976, 6565, 5665, 10, 1000, 908, 909, 232, 45654, 786]
 print(*(str(x) for x in numbers if str(x) != str(x)[::-1]))
 
+##
 
+numbers = [(10, -2, 3, 4), (-13, 56), (1, 9, 2), (-1, -9, -45, 32), (-1, 5, 1), (17, 0, 1), (0, 1), (3,), (39, 12), (11, -23), (10, -100, 21, 32), (3, -8), (1, 1)]
+sorted_numbers = sorted(numbers, key=lambda x: sum(x)/len(x), reverse=True)
+
+print(sorted_numbers)
+
+##
+
+def call(func, *args):
+    return func(*args)
+def mul7(x):
+    return x * 7
+def add2(x, y):
+    return x + y
+def add3(x, y, z):
+    return x + y + z
+
+print(call(mul7, 10))
+print(call(add2, 2, 7))
+print(call(add3, 10, 30, 40))
+print(call(bool, 0))
+
+##
+
+def compose(f, g):
+    def composed_functions(x):
+        return f(g(x))
+    return composed_functions
+
+##
+
+def arithmetic_operation(operation):
+    if operation == '+':
+        return lambda x, y: x + y
+    elif operation == '-':
+        return lambda x, y: x - y
+    elif operation == '*':
+        return lambda x, y: x * y
+    elif operation == '/':
+        return lambda x, y: x / y
+
+##
+    
+lane = input()
+sorted_lane = ' '.join(sorted(lane.split(), key=str.lower))
+print(sorted_lane)

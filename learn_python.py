@@ -5881,3 +5881,12 @@ def arithmetic_operation(operation):
 lane = input()
 sorted_lane = ' '.join(sorted(lane.split(), key=str.lower))
 print(sorted_lane)
+
+##
+
+first_file = open(input())
+
+for line in first_file:
+    print(line.strip())
+
+first_file.close()

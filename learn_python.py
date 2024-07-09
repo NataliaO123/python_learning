@@ -5890,3 +5890,52 @@ for line in first_file:
     print(line.strip())
 
 first_file.close()
+
+## Предпоследняя строка
+
+file = open(input())
+
+data_file = file.readlines()
+print(data_file[-2].rstrip())
+
+file.close()
+
+## Случайная строка
+
+import random as r
+file = open('lines.txt')
+
+data_file = file.readlines()
+i = r.randint(0, len(data_file))
+print(data_file[i])
+
+file.close()
+
+## Сумма двух-1
+
+file = open('numbers.txt')
+data = file.readlines()
+print(int(data[0]) + int(data[1]))
+
+file.close()
+
+## Сумма двух-2
+
+file = open('nums.txt')
+data = file.read().split()
+s = 0
+for i in range(len(data)):
+    if data[i] != ' ':
+        s += int(data[i])
+
+print(s)
+
+file.close()
+#better solution:
+file = open('nums.txt')
+
+print(sum(map(int, file.read().split())))
+
+file.close()
+
+

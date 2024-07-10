@@ -5938,4 +5938,35 @@ print(sum(map(int, file.read().split())))
 
 file.close()
 
+## Общая стоимость
+
+file = open('prices.txt', 'r', encoding='utf-8')
+data = file.readlines()
+mylist = []
+total = 0
+for line in data:
+    elements = line.strip().split('\t')
+    el_name = elements[0]
+    q = int(elements[1])
+    price = int(elements[2])
+    total_price = q * price
+    mylist.append((el_name, q, price, total_price))
+
+s = 0
+for i in mylist:
+    s += int(i[-1])
+
+print(s)
+
+## Переворот строки
+
+with open('text.txt', 'r', encoding='utf-8') as f:
+    for line in f:
+        print(line[::-1])
+
+## Обратный порядок
+
+with open('data.txt', 'r', encoding='utf-8') as ff:
+    temp = ff.readlines()
+    print(temp[::-1])
 

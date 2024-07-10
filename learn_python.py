@@ -5966,7 +5966,6 @@ with open('text.txt', 'r', encoding='utf-8') as f:
 
 ## Обратный порядок
 
-with open('data.txt', 'r', encoding='utf-8') as ff:
-    temp = ff.readlines()
-    print(temp[::-1])
-
+with open('data.txt', 'r', encoding='utf-8') as f:
+    for i in f.readlines()[::-1]:
+        print(i.strip())

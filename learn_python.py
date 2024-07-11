@@ -5969,3 +5969,43 @@ with open('text.txt', 'r', encoding='utf-8') as f:
 with open('data.txt', 'r', encoding='utf-8') as f:
     for i in f.readlines()[::-1]:
         print(i.strip())
+
+## Длинные строки
+
+with open('lines.txt') as f:
+    temp = f.readlines()
+    temp = [i.strip() for i in temp]
+    m = max(len(i) for i in temp)
+    for i in temp:
+        if len(i) == m:
+            print(i)
+
+## Сумма чисел в строках
+
+with open('numbers.txt') as n:
+    resp = [sum(map(int, i.split())) for i in n.readlines()]
+    print(*resp, sep='\n')
+
+## Сумма чисел в файле, замена символов в строке
+
+with open('nums.txt') as n:
+    old = n.read()
+    new = ''.join(char if char.isdigit() else ' ' for char in old).split()
+    print(sum(map(int, new)))
+
+## Статистика по файлу
+
+with open('file.txt') as data:
+    lines = data.readlines()
+    words = sum(len(i.strip().split()) for i in lines)
+    letters = []
+    for i in lines:
+        for j in range(len(i)):
+            if i[j].isalpha():
+                letters += i[j]
+    
+    print(f'''Input file contains:
+    {len(letters)} letters
+    {words} words
+    {len(lines)} lines''')
+

@@ -6009,3 +6009,14 @@ with open('file.txt') as data:
     {words} words
     {len(lines)} lines''')
 
+## Random name and surname
+    
+import random as r
+with open('first_names.txt') as fn, open('last_names.txt') as ln:
+    first = fn.readlines()
+    last = ln.readlines()
+    for i in range(3):
+        print(f'''{r.choice(first).strip()} {r.choise(last).strip()}''')
+
+
+

@@ -6018,5 +6018,29 @@ with open('first_names.txt') as fn, open('last_names.txt') as ln:
     for i in range(3):
         print(f'''{r.choice(first).strip()} {r.choise(last).strip()}''')
 
+## Необычные страны
+
+with open('population.txt') as f:
+    file = f.readlines()
+    for line in file:
+        parts = line.strip().split('\t')
+        if parts[0].startswith('G') and int(parts[1]) > 500000:
+            print(parts[0])
+
+## CSV
+            
+def read_csv():
+    with open('data.csv', 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+        headers = lines[0].strip().split(',')
+        data_lines = lines[1:]
+        result = []
+        for line in data_lines:
+            values = line.strip().split(',')
+            temp = {headers[i]: values[i] for i in range(len(headers))}
+            result.append(temp)
+    return result                
+
+
 
 

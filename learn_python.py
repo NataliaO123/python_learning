@@ -6041,6 +6041,15 @@ def read_csv():
             result.append(temp)
     return result                
 
+## Входная строка
 
+with open('output.txt', 'w', encoding='utf-8') as f:
+    f.write(input())
 
+## Случайные числа
+   
+import random as r
+
+with open('random.txt', 'w', encoding='utf-8') as f:
+    print(*[r.randint(111, 777) for i in range(25)], sep='\n', file=f)
 

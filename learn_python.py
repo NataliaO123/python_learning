@@ -6053,3 +6053,10 @@ import random as r
 with open('random.txt', 'w', encoding='utf-8') as f:
     print(*[r.randint(111, 777) for i in range(25)], sep='\n', file=f)
 
+## Нумерация строк
+
+with open('input.txt', 'r', encoding='utf-8') as i, open('output.txt', 'w', encoding='utf-8') as o:
+    inp = i.readlines()
+
+    for lane in enumerate(inp, 1):
+        o.write(f"{lane[0]}) {lane[1]}")

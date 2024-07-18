@@ -6060,3 +6060,16 @@ with open('input.txt', 'r', encoding='utf-8') as i, open('output.txt', 'w', enco
 
     for lane in enumerate(inp, 1):
         o.write(f"{lane[0]}) {lane[1]}")
+
+## Подарок 
+        
+with open('class_scores.txt', 'r') as i, open('new_scores.txt', 'w') as o:
+    inp = i.readlines()
+
+    for lane in inp:
+        parts = lane.split()
+        name = parts[0]
+        score = int(parts[1])
+        mrk = score + 5
+        new_s = min(100, mrk)
+        o.write(f"{name} {new_s}\n")
